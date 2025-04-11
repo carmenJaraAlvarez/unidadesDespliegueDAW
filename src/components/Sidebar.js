@@ -1,5 +1,5 @@
 function Sidebar() {
-    return `
+  return `
         <aside class="sidebar">
             <nav class="sidebar-menu">
                 <ul>
@@ -51,53 +51,53 @@ function Sidebar() {
         </aside>
     `;
 
-    // Añadir el evento después de que el contenido se haya insertado
-    setTimeout(() => {
-        const submenuToggles = document.querySelectorAll('.submenu-toggle');
-        
-        submenuToggles.forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                const parent = toggle.parentElement;
-                const submenu = parent.querySelector('.submenu');
-                const icon = toggle.querySelector('i');
-                
-                // Si el menú está activo, lo cerramos
-                if (parent.classList.contains('active')) {
-                    parent.classList.remove('active');
-                    submenu.style.maxHeight = '0px';
-                    icon.classList.remove('fa-chevron-up');
-                    icon.classList.add('fa-chevron-down');
-                } else {
-                    // Cerrar otros submenús primero
-                    document.querySelectorAll('.has-submenu').forEach(item => {
-                        if (item !== parent) {
-                            item.classList.remove('active');
-                            const otherSubmenu = item.querySelector('.submenu');
-                            const otherIcon = item.querySelector('i');
-                            if (otherSubmenu) otherSubmenu.style.maxHeight = '0px';
-                            if (otherIcon) {
-                                otherIcon.classList.remove('fa-chevron-up');
-                                otherIcon.classList.add('fa-chevron-down');
-                            }
-                        }
-                    });
-                    
-                    // Abrir el submenú actual
-                    parent.classList.add('active');
-                    submenu.style.maxHeight = submenu.scrollHeight + 'px';
-                    icon.classList.remove('fa-chevron-down');
-                    icon.classList.add('fa-chevron-up');
-                }
+  // Añadir el evento después de que el contenido se haya insertado
+  setTimeout(() => {
+    const submenuToggles = document.querySelectorAll('.submenu-toggle');
 
-                // Actualizar el hash en la URL
-                const href = toggle.getAttribute('href');
-                if (href && href !== '#') {
-                    window.location.hash = href;
-                }
-            });
-        });
-    }, 100);
-} 
+    submenuToggles.forEach((toggle) => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const parent = toggle.parentElement;
+        const submenu = parent.querySelector('.submenu');
+        const icon = toggle.querySelector('i');
+
+        // Si el menú está activo, lo cerramos
+        if (parent.classList.contains('active')) {
+          parent.classList.remove('active');
+          submenu.style.maxHeight = '0px';
+          icon.classList.remove('fa-chevron-up');
+          icon.classList.add('fa-chevron-down');
+        } else {
+          // Cerrar otros submenús primero
+          document.querySelectorAll('.has-submenu').forEach((item) => {
+            if (item !== parent) {
+              item.classList.remove('active');
+              const otherSubmenu = item.querySelector('.submenu');
+              const otherIcon = item.querySelector('i');
+              if (otherSubmenu) otherSubmenu.style.maxHeight = '0px';
+              if (otherIcon) {
+                otherIcon.classList.remove('fa-chevron-up');
+                otherIcon.classList.add('fa-chevron-down');
+              }
+            }
+          });
+
+          // Abrir el submenú actual
+          parent.classList.add('active');
+          submenu.style.maxHeight = submenu.scrollHeight + 'px';
+          icon.classList.remove('fa-chevron-down');
+          icon.classList.add('fa-chevron-up');
+        }
+
+        // Actualizar el hash en la URL
+        const href = toggle.getAttribute('href');
+        if (href && href !== '#') {
+          window.location.hash = href;
+        }
+      });
+    });
+  }, 100);
+}

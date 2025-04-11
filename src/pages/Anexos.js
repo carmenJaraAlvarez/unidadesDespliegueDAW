@@ -1,5 +1,5 @@
 function Anexos() {
-    return `
+  return `
         <section id="Anexos" class="content-box">
             <h2>Anexos</h2>
             <div class="green-line"></div>
@@ -13,4 +13,4 @@ function Anexos() {
             </div>
         </section>
     `;
-} 
+}
