@@ -1,9 +1,14 @@
- function Evaluacion() {
+function Unidad2Evaluacion() {
   return `
     <div class="content">
-      <h1>Evaluación - Unidad 2</h1>
+      <h2>7. Evaluación</h2>
+      <div class="content-section">
+        <h3>Unidad 2: Una nube sin agua</h3>
+        <p>Criterios y métodos de evaluación para esta unidad didáctica de desarrollo web.</p>
+      </div>
     </div>
   `;
-}                           
+}
 
-export default Evaluacion;
+// Make the component globally available with a unique name
+window.Unidad2Evaluacion = Unidad2Evaluacion;
