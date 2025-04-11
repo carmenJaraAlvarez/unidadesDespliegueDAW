@@ -546,4 +546,110 @@ footer a:hover {
   .sections-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Home Page Styles */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.content h2 {
+  color: #218838;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #218838;
+}
+
+.home-intro {
+  margin-bottom: 2rem;
+}
+
+.intro-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5568;
+  margin-bottom: 1rem;
+}
+
+.date {
+  font-weight: 600;
+  color: #2d3748;
+  margin-top: 1rem;
+}
+
+.home-framework {
+  margin-bottom: 2rem;
+}
+
+.framework-content > p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #4a5568;
+}
+
+.legal-framework {
+  margin-left: 1rem;
+}
+
+.legal-framework div {
+  margin-bottom: 1.5rem;
+}
+
+.legal-framework i {
+  color: #2b6cb0;
+  margin-right: 0.5rem;
+}
+
+.legal-framework h3 {
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+.legal-framework p {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-left: 1.5rem;
+}
+
+.home-conclusion p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+.legal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.legal-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  color: #4a5568;
+  display: flex;
+  align-items: flex-start;
+}
+
+.legal-list li > i:first-child {
+  font-size: 0.9rem;
+  color: #218838;
+  margin-right: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.legal-list a {
+  color: #2b6cb0;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.legal-list a:hover {
+  text-decoration: underline;
 } 
