@@ -1,0 +1,161 @@
+/* Variables globales */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #333;
+    --background-color: #f5f6fa;
+    --sidebar-width: 300px;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    display: flex;
+}
+
+/* Sidebar */
+#sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    position: fixed;
+    left: 0;
+    overflow-y: auto;
+}
+
+.sidebar-nav h3 {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    color: #ecf0f1;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.sidebar-nav a {
+    color: #bdc3c7;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+}
+
+.sidebar-nav a:hover {
+    color: white;
+}
+
+/* Contenido principal */
+#main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    padding: 2rem;
+}
+
+/* Header */
+.main-header {
+    margin-bottom: 2rem;
+}
+
+.main-header h1 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.main-nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Home page */
+.home-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.welcome {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.units-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.unit-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.unit-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.unit-card ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.unit-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.unit-link:hover {
+    background-color: #2980b9;
+}
+
+/* Footer */
+.main-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.license-footer {
+    margin-bottom: 1rem;
+}
+
+.license-footer img {
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.copyright {
+    color: #666;
+    font-size: 0.9rem;
+} 
