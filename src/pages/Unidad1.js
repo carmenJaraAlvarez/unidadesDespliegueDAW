@@ -8,40 +8,13 @@ import Evaluacion from './Unidad1/Evaluacion.js';
 
 function Unidad1() {
   return `
-        <section id="Unidad1" class="content-box">
-            <h2>Unidad 1: La Paz es Compartir</h2>
-            <p class="subtitle">Introducción al Desarrollo Web</p>
-            <div class="green-line"></div>
-
-            <div id="Unidad1/Identificacion" class="section-content">
-                ${window.Unidad1Identificacion ? window.Unidad1Identificacion() : ''}
-            </div>
-
-            <div id="Unidad1/Justificacion" class="section-content">
-                ${window.Unidad1Justificacion ? window.Unidad1Justificacion() : ''}
-            </div>
-
-            <div id="Unidad1/PrincipiosDUA" class="section-content">
-                ${window.Unidad1PrincipiosDUA ? window.Unidad1PrincipiosDUA() : ''}
-            </div>
-
-            <div id="Unidad1/Descripcion" class="section-content">
-                ${window.Unidad1Descripcion ? window.Unidad1Descripcion() : ''}
-            </div>
-
-            <div id="Unidad1/Concrecion" class="section-content">
-                ${window.Unidad1Concrecion ? window.Unidad1Concrecion() : ''}
-            </div>
-
-            <div id="Unidad1/Secuenciacion" class="section-content">
-                ${window.Unidad1Secuenciacion ? window.Unidad1Secuenciacion() : ''}
-            </div>
-
-            <div id="Unidad1/Evaluacion" class="section-content">
-                ${window.Unidad1Evaluacion ? window.Unidad1Evaluacion() : ''}
-            </div>
-        </section>
-    `;
+    <section class="content-box">
+      <h2>Unidad 1: La Paz es Compartir</h2>
+      <p class="subtitle">Introducción al Desarrollo Web</p>
+      <div class="green-line"></div>
+      <p>Selecciona una sección del menú lateral para ver su contenido.</p>
+    </section>
+  `;
 }
 
 // Make Unidad1 available globally

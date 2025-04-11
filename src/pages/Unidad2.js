@@ -8,40 +8,13 @@ import Evaluacion from './Unidad2/Evaluacion.js';
 
 function Unidad2() {
   return `
-        <section id="Unidad2" class="content-box">
-            <h2>Unidad 2: Una nube sin agua</h2>
-            <p class="subtitle">Desarrollo Frontend y Backend</p>
-            <div class="green-line"></div>
-
-            <div id="Unidad2/Identificacion" class="section-content">
-                ${window.Unidad2Identificacion ? window.Unidad2Identificacion() : ''}
-            </div>
-
-            <div id="Unidad2/Justificacion" class="section-content">
-                ${window.Unidad2Justificacion ? window.Unidad2Justificacion() : ''}
-            </div>
-
-            <div id="Unidad2/PrincipiosDUA" class="section-content">
-                ${window.Unidad2PrincipiosDUA ? window.Unidad2PrincipiosDUA() : ''}
-            </div>
-
-            <div id="Unidad2/Descripcion" class="section-content">
-                ${window.Unidad2Descripcion ? window.Unidad2Descripcion() : ''}
-            </div>
-
-            <div id="Unidad2/Concrecion" class="section-content">
-                ${window.Unidad2Concrecion ? window.Unidad2Concrecion() : ''}
-            </div>
-
-            <div id="Unidad2/Secuenciacion" class="section-content">
-                ${window.Unidad2Secuenciacion ? window.Unidad2Secuenciacion() : ''}
-            </div>
-
-            <div id="Unidad2/Evaluacion" class="section-content">
-                ${window.Unidad2Evaluacion ? window.Unidad2Evaluacion() : ''}
-            </div>
-        </section>
-    `;
+    <section class="content-box">
+      <h2>Unidad 2: Una nube sin agua</h2>
+      <p class="subtitle">Desarrollo de Aplicaciones Web</p>
+      <div class="green-line"></div>
+      <p>Selecciona una sección del menú lateral para ver su contenido.</p>
+    </section>
+  `;
 }
 
 // Make Unidad2 available globally

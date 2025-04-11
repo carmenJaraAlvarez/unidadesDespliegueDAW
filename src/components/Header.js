@@ -1,12 +1,11 @@
 function Header() {
   return `
-        <header>
-            <nav>
-                <a href="#" class="logo">Desarrollo Web</a>
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
-        </header>
-    `;
+    <header>
+      <nav style="text-align: center;">
+        <a href="#" class="logo">Desarrollo Web</a>
+      </nav>
+    </header>
+  `;
 }
+
+window.Header = Header;

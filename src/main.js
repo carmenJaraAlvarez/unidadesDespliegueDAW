@@ -2,7 +2,14 @@
 function loadComponent(componentId, componentFile) {
   const element = document.getElementById(componentId);
   if (element && window[componentFile]) {
-    element.innerHTML = window[componentFile]();
+    const component = window[componentFile]();
+    if (typeof component === 'object' && component.template && component.init) {
+      element.innerHTML = component.template;
+      // Initialize the component after DOM insertion
+      setTimeout(() => component.init(), 0);
+    } else {
+      element.innerHTML = component;
+    }
   }
 }
 
@@ -16,22 +23,14 @@ function loadPage(pageId) {
     const [unit, section] = pageId.split('/');
     // Try to load the section component with unit prefix
     const componentName = unit + section;
-    console.log('Looking for component:', componentName); // Debug log
-    
     if (window[componentName]) {
       pageContent.innerHTML = window[componentName]();
-      return;
-    } else {
-      console.log('Section component not found:', componentName); // Debug log
     }
-  }
-
-  // If not a submenu item or section not found, load the main unit page
-  const mainPageId = pageId.split('/')[0].replace('#', '');
-  if (window[mainPageId]) {
-    pageContent.innerHTML = window[mainPageId]();
   } else {
-    console.log('Main page component not found:', mainPageId); // Debug log
+    // Load the main unit page
+    if (window[pageId]) {
+      pageContent.innerHTML = window[pageId]();
+    }
   }
 }
 
@@ -80,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadComponent('footer', 'Footer');
 
   // Cargar página inicial o página actual según el hash
-  const hash = window.location.hash.slice(1) || 'Home';
+  const hash = window.location.hash.slice(1) || 'inicio';
   loadPage(hash);
 
   // Abrir el submenú correspondiente después de un breve retraso
@@ -88,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Manejar navegación
   window.addEventListener('hashchange', () => {
-    const hash = window.location.hash.slice(1) || 'Home';
+    const hash = window.location.hash.slice(1);
     loadPage(hash);
     // Abrir el submenú correspondiente después de cargar la página
     setTimeout(openCurrentSubmenu, 100);
