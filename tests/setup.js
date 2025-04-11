@@ -9,19 +9,22 @@ window.scrollTo = jest.fn();
 
 // Add any custom matchers or global test utilities here
 expect.extend({
-    toHaveProperSubmenuState(element, isOpen) {
-        const hasActiveClass = element.classList.contains('active');
-        const submenu = element.querySelector('.submenu');
-        const icon = element.querySelector('i');
-        
-        const pass = isOpen ? 
-            (hasActiveClass && submenu.style.maxHeight !== '0px' && icon.classList.contains('fa-chevron-up')) :
-            (!hasActiveClass && submenu.style.maxHeight === '0px' && icon.classList.contains('fa-chevron-down'));
+  toHaveProperSubmenuState(element, isOpen) {
+    const hasActiveClass = element.classList.contains('active');
+    const submenu = element.querySelector('.submenu');
+    const icon = element.querySelector('i');
 
-        return {
-            pass,
-            message: () => 
-                `expected element to ${isOpen ? 'be' : 'not be'} in an open submenu state`
-        };
-    }
-}); 
+    const pass = isOpen
+      ? hasActiveClass &&
+        submenu.style.maxHeight !== '0px' &&
+        icon.classList.contains('fa-chevron-up')
+      : !hasActiveClass &&
+        submenu.style.maxHeight === '0px' &&
+        icon.classList.contains('fa-chevron-down');
+
+    return {
+      pass,
+      message: () => `expected element to ${isOpen ? 'be' : 'not be'} in an open submenu state`,
+    };
+  },
+});

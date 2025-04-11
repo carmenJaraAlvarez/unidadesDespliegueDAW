@@ -1,5 +1,5 @@
 function Header() {
-    return `
+  return `
         <header>
             <nav>
                 <a href="#" class="logo">Desarrollo Web</a>
@@ -9,4 +9,4 @@ function Header() {
             </nav>
         </header>
     `;
-} 
+}

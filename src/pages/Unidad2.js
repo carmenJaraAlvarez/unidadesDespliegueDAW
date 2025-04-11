@@ -1,5 +1,5 @@
 function Unidad2() {
-    return `
+  return `
         <section id="Unidad2" class="content-box">
             <h2>Unidad 2: Una nube sin agua</h2>
             <p class="subtitle">Desarrollo Frontend y Backend</p>
@@ -52,4 +52,4 @@ function Unidad2() {
             </div>
         </section>
     `;
-} 
+}
