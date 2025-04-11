@@ -10,26 +10,54 @@ function loadComponent(componentId, componentFile) {
     } else {
       element.innerHTML = component;
     }
+  } else {
+    console.error(`Component ${componentFile} not found or element ${componentId} not found`);
   }
 }
 
 // Función para cargar páginas
 function loadPage(pageId) {
   const pageContent = document.getElementById('page-content');
-  if (!pageContent) return;
+  if (!pageContent) {
+    console.error('Page content element not found');
+    return;
+  }
+
+  console.log('Loading page:', pageId);
+
+  // Si no hay pageId o es 'inicio', cargar Home
+  if (!pageId || pageId === 'inicio' || pageId === 'Home') {
+    pageContent.innerHTML = window.Home();
+    return;
+  }
 
   // Check if it's a submenu item
   if (pageId.includes('/')) {
     const [unit, section] = pageId.split('/');
+    console.log('Loading section:', unit, section);
+    
     // Try to load the section component with unit prefix
     const componentName = unit + section;
+    const altComponentName = unit + section.charAt(0).toUpperCase() + section.slice(1);
+    
+    console.log('Trying component names:', componentName, altComponentName);
+    
     if (window[componentName]) {
+      console.log('Found component:', componentName);
       pageContent.innerHTML = window[componentName]();
+    } else if (window[altComponentName]) {
+      console.log('Found alternative component:', altComponentName);
+      pageContent.innerHTML = window[altComponentName]();
+    } else {
+      console.error('Component not found:', componentName, altComponentName);
     }
   } else {
     // Load the main unit page
     if (window[pageId]) {
+      console.log('Found main unit page:', pageId);
       pageContent.innerHTML = window[pageId]();
+    } else {
+      console.error('Main unit page not found:', pageId);
     }
   }
 }
