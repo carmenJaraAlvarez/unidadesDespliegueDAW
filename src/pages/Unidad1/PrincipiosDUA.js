@@ -1,13 +1,14 @@
-function PrincipiosDUA() {
+function Unidad1PrincipiosDUA() {
   return `
     <div class="content">
-      <h1>Principios DUA - Unidad 3</h1>
+      <h2>3. Principios DUA</h2>
       <div class="content-section">
-        <h2>Defenderse o morir</h2>
-        <p>Seguridad en Aplicaciones Web</p>
+        <h3>Unidad 1: La Paz es Compartir</h3>
+        <p>Principios del Diseño Universal del Aprendizaje aplicados a esta unidad.</p>
       </div>
     </div>
   `;
 }
 
-export default PrincipiosDUA; 
+// Make the component globally available with a unique name
+window.Unidad1PrincipiosDUA = Unidad1PrincipiosDUA; 

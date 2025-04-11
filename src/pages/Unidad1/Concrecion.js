@@ -1,13 +1,14 @@
-function Concrecion() {
+function Unidad1Concrecion() {
   return `
     <div class="content">
-      <h1>Concreción Curricular - Unidad 3</h1>
+      <h2>5. Concreción Curricular</h2>
       <div class="content-section">
-        <h2>Defenderse o morir</h2>
-        <p>Seguridad en Aplicaciones Web</p>
+        <h3>Unidad 1: La Paz es Compartir</h3>
+        <p>Concreción curricular de la unidad didáctica.</p>
       </div>
     </div>
   `;
 }
 
-export default Concrecion; 
+// Make the component globally available with a unique name
+window.Unidad1Concrecion = Unidad1Concrecion; 

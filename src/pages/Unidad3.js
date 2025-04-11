@@ -14,34 +14,35 @@ function Unidad3() {
             <div class="green-line"></div>
 
             <div id="Unidad3/Identificacion" class="section-content">
-                ${Identificacion()}
+                ${window.Unidad3Identificacion ? window.Unidad3Identificacion() : ''}
             </div>
 
             <div id="Unidad3/Justificacion" class="section-content">
-                ${Justificacion()}
+                ${window.Unidad3Justificacion ? window.Unidad3Justificacion() : ''}
             </div>
 
             <div id="Unidad3/PrincipiosDUA" class="section-content">
-                ${PrincipiosDUA()}
+                ${window.Unidad3PrincipiosDUA ? window.Unidad3PrincipiosDUA() : ''}
             </div>
 
             <div id="Unidad3/Descripcion" class="section-content">
-                ${Descripcion()}
+                ${window.Unidad3Descripcion ? window.Unidad3Descripcion() : ''}
             </div>
 
             <div id="Unidad3/Concrecion" class="section-content">
-                ${Concrecion()}
+                ${window.Unidad3Concrecion ? window.Unidad3Concrecion() : ''}
             </div>
 
             <div id="Unidad3/Secuenciacion" class="section-content">
-                ${Secuenciacion()}
+                ${window.Unidad3Secuenciacion ? window.Unidad3Secuenciacion() : ''}
             </div>
 
             <div id="Unidad3/Evaluacion" class="section-content">
-                ${Evaluacion()}
+                ${window.Unidad3Evaluacion ? window.Unidad3Evaluacion() : ''}
             </div>
         </section>
     `;
 }
 
-export default Unidad3;
+// Make Unidad3 available globally
+window.Unidad3 = Unidad3;

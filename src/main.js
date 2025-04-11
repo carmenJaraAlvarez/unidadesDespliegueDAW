@@ -9,8 +9,29 @@ function loadComponent(componentId, componentFile) {
 // Función para cargar páginas
 function loadPage(pageId) {
   const pageContent = document.getElementById('page-content');
-  if (pageContent && window[pageId]) {
-    pageContent.innerHTML = window[pageId]();
+  if (!pageContent) return;
+
+  // Check if it's a submenu item
+  if (pageId.includes('/')) {
+    const [unit, section] = pageId.split('/');
+    // Try to load the section component with unit prefix
+    const componentName = unit + section;
+    console.log('Looking for component:', componentName); // Debug log
+    
+    if (window[componentName]) {
+      pageContent.innerHTML = window[componentName]();
+      return;
+    } else {
+      console.log('Section component not found:', componentName); // Debug log
+    }
+  }
+
+  // If not a submenu item or section not found, load the main unit page
+  const mainPageId = pageId.split('/')[0].replace('#', '');
+  if (window[mainPageId]) {
+    pageContent.innerHTML = window[mainPageId]();
+  } else {
+    console.log('Main page component not found:', mainPageId); // Debug log
   }
 }
 
@@ -60,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Cargar página inicial o página actual según el hash
   const hash = window.location.hash.slice(1) || 'Home';
-  loadPage(hash.split('/')[0]);
+  loadPage(hash);
 
   // Abrir el submenú correspondiente después de un breve retraso
   setTimeout(openCurrentSubmenu, 200);
@@ -68,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Manejar navegación
   window.addEventListener('hashchange', () => {
     const hash = window.location.hash.slice(1) || 'Home';
-    loadPage(hash.split('/')[0]);
+    loadPage(hash);
     // Abrir el submenú correspondiente después de cargar la página
     setTimeout(openCurrentSubmenu, 100);
   });
