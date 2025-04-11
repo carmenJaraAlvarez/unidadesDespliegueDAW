@@ -3,17 +3,17 @@
  */
 
 describe('Sidebar Component', () => {
-    let container;
+  let container;
 
-    beforeEach(() => {
-        // Set up a DOM element as a render target
-        container = document.createElement('div');
-        container.id = 'sidebar';
-        document.body.appendChild(container);
+  beforeEach(() => {
+    // Set up a DOM element as a render target
+    container = document.createElement('div');
+    container.id = 'sidebar';
+    document.body.appendChild(container);
 
-        // Mock the Sidebar function
-        global.Sidebar = () => {
-            container.innerHTML = `
+    // Mock the Sidebar function
+    global.Sidebar = () => {
+      container.innerHTML = `
                 <nav class="sidebar-menu">
                     <ul>
                         <li><a href="#inicio"><span>Inicio</span></a></li>
@@ -33,68 +33,68 @@ describe('Sidebar Component', () => {
                 </nav>
             `;
 
-            // Add click event listeners
-            const submenuToggles = container.querySelectorAll('.submenu-toggle');
-            submenuToggles.forEach(toggle => {
-                toggle.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const parent = toggle.parentElement;
-                    const submenu = parent.querySelector('.submenu');
-                    const icon = toggle.querySelector('i');
-                    
-                    if (parent.classList.contains('active')) {
-                        parent.classList.remove('active');
-                        submenu.style.maxHeight = '0px';
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    } else {
-                        parent.classList.add('active');
-                        submenu.style.maxHeight = submenu.scrollHeight + 'px';
-                        icon.classList.remove('fa-chevron-down');
-                        icon.classList.add('fa-chevron-up');
-                    }
-                });
-            });
-        };
-    });
+      // Add click event listeners
+      const submenuToggles = container.querySelectorAll('.submenu-toggle');
+      submenuToggles.forEach((toggle) => {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const parent = toggle.parentElement;
+          const submenu = parent.querySelector('.submenu');
+          const icon = toggle.querySelector('i');
 
-    afterEach(() => {
-        // Cleanup
-        document.body.removeChild(container);
-        delete global.Sidebar;
-    });
+          if (parent.classList.contains('active')) {
+            parent.classList.remove('active');
+            submenu.style.maxHeight = '0px';
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+          } else {
+            parent.classList.add('active');
+            submenu.style.maxHeight = submenu.scrollHeight + 'px';
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+          }
+        });
+      });
+    };
+  });
 
-    test('should render sidebar with menu items', () => {
-        // Load the sidebar component
-        Sidebar();
+  afterEach(() => {
+    // Cleanup
+    document.body.removeChild(container);
+    delete global.Sidebar;
+  });
 
-        // Check if main menu items are rendered
-        const menuItems = document.querySelectorAll('.sidebar-menu > ul > li');
-        expect(menuItems.length).toBe(2); // Inicio + Unit 1 (simplified test version)
+  test('should render sidebar with menu items', () => {
+    // Load the sidebar component
+    Sidebar();
 
-        // Check if submenu items are present for Unit 1
-        const unit1Submenu = document.querySelectorAll('.has-submenu')[0];
-        const unit1Items = unit1Submenu.querySelectorAll('.submenu li');
-        expect(unit1Items.length).toBe(7); // 7 sections in each unit
-    });
+    // Check if main menu items are rendered
+    const menuItems = document.querySelectorAll('.sidebar-menu > ul > li');
+    expect(menuItems.length).toBe(2); // Inicio + Unit 1 (simplified test version)
 
-    test('submenu should toggle when clicked', () => {
-        // Load the sidebar component
-        Sidebar();
+    // Check if submenu items are present for Unit 1
+    const unit1Submenu = document.querySelectorAll('.has-submenu')[0];
+    const unit1Items = unit1Submenu.querySelectorAll('.submenu li');
+    expect(unit1Items.length).toBe(7); // 7 sections in each unit
+  });
 
-        // Get the first unit's toggle button
-        const unit1Toggle = document.querySelector('.submenu-toggle');
-        const parent = unit1Toggle.parentElement;
-        
-        // Initial state - submenu should be closed
-        expect(parent).not.toHaveClass('active');
+  test('submenu should toggle when clicked', () => {
+    // Load the sidebar component
+    Sidebar();
 
-        // Click to open
-        unit1Toggle.click();
-        expect(parent).toHaveClass('active');
+    // Get the first unit's toggle button
+    const unit1Toggle = document.querySelector('.submenu-toggle');
+    const parent = unit1Toggle.parentElement;
 
-        // Click to close
-        unit1Toggle.click();
-        expect(parent).not.toHaveClass('active');
-    });
-}); 
+    // Initial state - submenu should be closed
+    expect(parent).not.toHaveClass('active');
+
+    // Click to open
+    unit1Toggle.click();
+    expect(parent).toHaveClass('active');
+
+    // Click to close
+    unit1Toggle.click();
+    expect(parent).not.toHaveClass('active');
+  });
+});

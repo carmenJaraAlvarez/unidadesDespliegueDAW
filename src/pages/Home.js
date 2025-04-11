@@ -1,5 +1,5 @@
 function Home() {
-    return `
+  return `
         <section id="inicio" class="hero">
             <div class="hero-content">
                 <h1>Desarrollo de Aplicaciones Web</h1>
@@ -48,4 +48,4 @@ function Home() {
             </div>
         </section>
     `;
-} 
+}

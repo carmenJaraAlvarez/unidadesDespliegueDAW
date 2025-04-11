@@ -1,58 +1,48 @@
+import Identificacion from './Unidad3/Identificacion.js';
+import Justificacion from './Unidad3/Justificacion.js';
+import PrincipiosDUA from './Unidad3/PrincipiosDUA.js';
+import Descripcion from './Unidad3/Descripcion.js';
+import Concrecion from './Unidad3/Concrecion.js';
+import Secuenciacion from './Unidad3/Secuenciacion.js';
+import Evaluacion from './Unidad3/Evaluacion.js';
+
 function Unidad3() {
-    return `
+  return `
         <section id="Unidad3" class="content-box">
             <h2>Unidad 3: Defenderse o morir</h2>
             <p class="subtitle">Seguridad en Aplicaciones Web</p>
             <div class="green-line"></div>
 
             <div id="Unidad3/Identificacion" class="section-content">
-                <h3>1. Datos de Identificación de la Unidad</h3>
-                <!-- Contenido específico de la sección -->
+                ${window.Unidad3Identificacion ? window.Unidad3Identificacion() : ''}
             </div>
 
             <div id="Unidad3/Justificacion" class="section-content">
-                <h3>2. Justificación</h3>
-                <!-- Contenido específico de la sección -->
+                ${window.Unidad3Justificacion ? window.Unidad3Justificacion() : ''}
             </div>
 
             <div id="Unidad3/PrincipiosDUA" class="section-content">
-                <h3>3. Principios DUA</h3>
-                <!-- Contenido específico de la sección -->
+                ${window.Unidad3PrincipiosDUA ? window.Unidad3PrincipiosDUA() : ''}
             </div>
 
             <div id="Unidad3/Descripcion" class="section-content">
-                <h3>4. Descripción del Producto Final</h3>
-                <!-- Contenido específico de la sección -->
+                ${window.Unidad3Descripcion ? window.Unidad3Descripcion() : ''}
             </div>
 
             <div id="Unidad3/Concrecion" class="section-content">
-                <h3>5. Concreción Curricular</h3>
-                <!-- Contenido específico de la sección -->
+                ${window.Unidad3Concrecion ? window.Unidad3Concrecion() : ''}
             </div>
 
             <div id="Unidad3/Secuenciacion" class="section-content">
-                <h3>6. Secuenciación Didáctica</h3>
-                <div class="subsection">
-                    <h4>6.1. Fase Inicial: Situamos al alumnado</h4>
-                    <!-- Contenido específico de la subsección -->
-                </div>
-                <div class="subsection">
-                    <h4>6.2. Fase de Desarrollo: Conocer, comprender, pensar, practicar y actuar</h4>
-                    <!-- Contenido específico de la subsección -->
-                </div>
-                <div class="subsection">
-                    <h4>6.3. Fase de Síntesis o Cierre: Compartir, evaluar y reflexionar sobre nuestros logros</h4>
-                    <!-- Contenido específico de la subsección -->
-                </div>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/51MSd7vhQjY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                ${window.Unidad3Secuenciacion ? window.Unidad3Secuenciacion() : ''}
             </div>
 
             <div id="Unidad3/Evaluacion" class="section-content">
-                <h3>7. Evaluación</h3>
-                <!-- Contenido específico de la sección -->
+                ${window.Unidad3Evaluacion ? window.Unidad3Evaluacion() : ''}
             </div>
         </section>
     `;
-} 
+}
+
+// Make Unidad3 available globally
+window.Unidad3 = Unidad3;
