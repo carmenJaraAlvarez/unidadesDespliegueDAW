@@ -195,97 +195,60 @@ function Sidebar() {
       
       // Toggle submenu
       document.querySelectorAll('.submenu-toggle').forEach(toggle => {
-        console.log('Setting up submenu toggle:', {
-          href: toggle.getAttribute('href'),
-          parentClass: toggle.parentElement.className,
-          isNested: toggle.closest('.submenu') !== null
-        });
-        
         toggle.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
           
           const parent = toggle.parentElement;
-          console.log('Toggle clicked:', {
-            href: toggle.getAttribute('href'),
-            isActive: parent.classList.contains('active'),
-            parentClass: parent.className,
-            isNested: parent.closest('.submenu') !== null,
-            currentDisplay: parent.querySelector('.submenu')?.style.display,
-            currentVisibility: parent.querySelector('.submenu')?.style.visibility,
-            currentOpacity: parent.querySelector('.submenu')?.style.opacity,
-            currentMaxHeight: parent.querySelector('.submenu')?.style.maxHeight
-          });
+          const submenu = parent.querySelector('.submenu');
           
-          // Log menu structure before toggle
-          console.log('Menu structure before toggle:');
-          logMenuStructure(parent);
+          // If the menu is already active, close it
+          if (parent.classList.contains('active')) {
+            parent.classList.remove('active');
+            if (submenu) {
+              submenu.style.maxHeight = '0';
+            }
+            return;
+          }
           
-          // Toggle current submenu
-          const wasActive = toggleSubmenu(parent);
-          
-          // Wait for next frame
-          requestAnimationFrame(() => {
-            const isNowActive = parent.classList.contains('active');
-            console.log('After toggle and animation frame:', {
-              href: toggle.getAttribute('href'),
-              isActive: isNowActive,
-              submenuVisible: isSubmenuVisible(parent),
-              wasActive,
-              isNested: parent.closest('.submenu') !== null,
-              currentDisplay: parent.querySelector('.submenu')?.style.display,
-              currentVisibility: parent.querySelector('.submenu')?.style.visibility,
-              currentOpacity: parent.querySelector('.submenu')?.style.opacity,
-              currentMaxHeight: parent.querySelector('.submenu')?.style.maxHeight
-            });
-            
-            // Log menu structure after toggle
-            console.log('Menu structure after toggle:');
-            logMenuStructure(parent);
-          });
-          
-          // Close sibling submenus only at the same level
+          // If opening a new menu, close other menus at the same level
           const siblings = parent.parentElement.querySelectorAll('.has-submenu');
-          console.log('Found siblings:', siblings.length);
-          
           siblings.forEach(sibling => {
             if (sibling !== parent) {
-              console.log('Closing sibling:', {
-                href: sibling.querySelector('a')?.getAttribute('href'),
-                wasActive: sibling.classList.contains('active'),
-                wasVisible: isSubmenuVisible(sibling),
-                isNested: sibling.closest('.submenu') !== null
-              });
-              
-              toggleSubmenu(sibling, false);
-              // Also close all nested submenus in siblings
-              const nestedMenus = sibling.querySelectorAll('.has-submenu');
-              console.log('Closing nested menus in sibling:', nestedMenus.length);
-              
-              nestedMenus.forEach(nested => {
-                toggleSubmenu(nested, false);
-              });
+              sibling.classList.remove('active');
+              const siblingSubmenu = sibling.querySelector('.submenu');
+              if (siblingSubmenu) {
+                siblingSubmenu.style.maxHeight = '0';
+              }
             }
           });
+          
+          // Open the clicked menu
+          parent.classList.add('active');
+          if (submenu) {
+            const totalHeight = Array.from(submenu.children).reduce((height, child) => {
+              return height + child.offsetHeight;
+            }, 0);
+            submenu.style.maxHeight = `${totalHeight}px`;
+          }
           
           // Keep parent menus open
           let currentParent = parent.parentElement.closest('.has-submenu');
           while (currentParent) {
-            console.log('Keeping parent menu open:', {
-              href: currentParent.querySelector('a')?.getAttribute('href'),
-              wasActive: currentParent.classList.contains('active'),
-              wasVisible: isSubmenuVisible(currentParent),
-              isNested: currentParent.closest('.submenu') !== null
-            });
-            
-            toggleSubmenu(currentParent, true);
+            currentParent.classList.add('active');
+            const parentSubmenu = currentParent.querySelector('.submenu');
+            if (parentSubmenu) {
+              const totalHeight = Array.from(parentSubmenu.children).reduce((height, child) => {
+                return height + child.offsetHeight;
+              }, 0);
+              parentSubmenu.style.maxHeight = `${totalHeight}px`;
+            }
             currentParent = currentParent.parentElement.closest('.has-submenu');
           }
 
           // Update URL hash
           const href = toggle.getAttribute('href');
           if (href) {
-            console.log('Updating URL hash to:', href);
             window.location.hash = href;
             window.dispatchEvent(new HashChangeEvent('hashchange'));
           }
