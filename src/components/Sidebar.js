@@ -13,7 +13,7 @@ function Sidebar() {
               <li><a href="#Unidad1/Identificacion" class="submenu-item"><span>1. Datos de Identificación</span></a></li>
               <li><a href="#Unidad1/Justificacion" class="submenu-item"><span>2. Justificación</span></a></li>
               <li><a href="#Unidad1/PrincipiosDUA" class="submenu-item"><span>3. Principios DUA</span></a></li>
-              <li><a href="#Unidad1/Descripcion" class="submenu-item"><span>4. Descripción del Producto Final</span></a></li>
+              <li><a href="#Unidad1/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad1/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
               <li><a href="#Unidad1/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a></li>
               <li><a href="#Unidad1/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
@@ -25,7 +25,7 @@ function Sidebar() {
               <li><a href="#Unidad2/Identificacion" class="submenu-item"><span>1. Datos de Identificación</span></a></li>
               <li><a href="#Unidad2/Justificacion" class="submenu-item"><span>2. Justificación</span></a></li>
               <li><a href="#Unidad2/PrincipiosDUA" class="submenu-item"><span>3. Principios DUA</span></a></li>
-              <li><a href="#Unidad2/Descripcion" class="submenu-item"><span>4. Descripción del Producto Final</span></a></li>
+              <li><a href="#Unidad2/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad2/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
               <li><a href="#Unidad2/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a></li>
               <li><a href="#Unidad2/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
@@ -37,7 +37,7 @@ function Sidebar() {
               <li><a href="#Unidad3/Identificacion" class="submenu-item"><span>1. Datos de Identificación</span></a></li>
               <li><a href="#Unidad3/Justificacion" class="submenu-item"><span>2. Justificación</span></a></li>
               <li><a href="#Unidad3/PrincipiosDUA" class="submenu-item"><span>3. Principios DUA</span></a></li>
-              <li><a href="#Unidad3/Descripcion" class="submenu-item"><span>4. Descripción del Producto Final</span></a></li>
+              <li><a href="#Unidad3/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad3/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
               <li><a href="#Unidad3/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a></li>
               <li><a href="#Unidad3/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
