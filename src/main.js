@@ -38,8 +38,9 @@ function loadPage(pageId) {
     // Try different component name formats
     const componentName = parts.join('');
     const alternativeComponentName = parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+    const nestedComponentName = parts[0] + parts.slice(1).map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
     
-    console.log('Trying component names:', componentName, alternativeComponentName);
+    console.log('Trying component names:', componentName, alternativeComponentName, nestedComponentName);
     
     if (window[componentName]) {
       console.log('Found component:', componentName);
@@ -47,6 +48,9 @@ function loadPage(pageId) {
     } else if (window[alternativeComponentName]) {
       console.log('Found alternative component:', alternativeComponentName);
       pageContent.innerHTML = window[alternativeComponentName]();
+    } else if (window[nestedComponentName]) {
+      console.log('Found nested component:', nestedComponentName);
+      pageContent.innerHTML = window[nestedComponentName]();
     } else {
       // If component not found, try to load a default component for the unit
       const unit = parts[0];
