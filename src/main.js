@@ -190,10 +190,29 @@ function openCurrentSubmenu() {
       if (hash.includes('Secuenciacion')) {
         const nestedSubmenu = menuItem.nextElementSibling;
         if (nestedSubmenu && nestedSubmenu.classList.contains('submenu-nested')) {
-          nestedSubmenu.style.maxHeight = `${nestedSubmenu.scrollHeight}px`;
+          // Primero mostrar el submenu para que el scrollHeight sea correcto
           nestedSubmenu.style.display = 'block';
           nestedSubmenu.style.visibility = 'visible';
           nestedSubmenu.style.opacity = '1';
+          
+          // Mostrar todas las fases primero para calcular la altura total correcta
+          const phaseElements = nestedSubmenu.querySelectorAll('.submenu-item');
+          phaseElements.forEach(element => {
+            element.style.display = 'block';
+            element.style.visibility = 'visible';
+            element.style.opacity = '1';
+            element.style.maxHeight = '500px';
+          });
+          
+          // Ahora establecer la altura máxima del submenu anidado
+          const totalHeight = Array.from(phaseElements).reduce((total, el) => total + el.scrollHeight, 0);
+          nestedSubmenu.style.maxHeight = `${Math.max(totalHeight + 50, nestedSubmenu.scrollHeight)}px`;
+          
+          // Asegurarse de que el menú padre también tenga suficiente altura
+          const parentSubmenu = menuItem.closest('.submenu');
+          if (parentSubmenu) {
+            parentSubmenu.style.maxHeight = `${parentSubmenu.scrollHeight + totalHeight + 100}px`;
+          }
         }
       }
     }
