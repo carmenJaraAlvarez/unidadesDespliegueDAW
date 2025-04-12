@@ -675,4 +675,13 @@ footer a:hover {
 
 .legal-list a:hover {
   text-decoration: underline;
+}
+
+.sidebar-menu .submenu-item.active {
+  background-color: #f0f5ff;
+  border-left: 4px solid var(--primary-color);
+}
+
+.sidebar-menu .submenu-item.active span {
+  color: #0056b3;
 } 
