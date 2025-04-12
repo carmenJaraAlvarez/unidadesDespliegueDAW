@@ -80,6 +80,67 @@ function Sidebar() {
     init() {
       console.log('Initializing Sidebar component');
 
+      // Function to show phases menu
+      const showPhasesMenu = (secuenciacionItem) => {
+        if (!secuenciacionItem) return;
+        
+        console.log('Attempting to show phases menu for:', secuenciacionItem.getAttribute('href'));
+        
+        // Find the nested submenu
+        const parentLi = secuenciacionItem.closest('li');
+        const nestedSubmenu = parentLi.querySelector('.submenu-nested');
+        
+        if (nestedSubmenu) {
+          console.log('Found nested submenu:', {
+            display: nestedSubmenu.style.display,
+            visibility: nestedSubmenu.style.visibility,
+            opacity: nestedSubmenu.style.opacity,
+            height: '80em'
+          });
+          debugger;
+          // Show the nested submenu
+          nestedSubmenu.style.maxHeight = `${nestedSubmenu.scrollHeight}px`;
+          nestedSubmenu.style.display = 'block';
+          nestedSubmenu.style.visibility = 'visible';
+          nestedSubmenu.style.opacity = '1';
+          
+          // Show all phase elements
+          const phaseElements = nestedSubmenu.querySelectorAll('.submenu-item');
+          phaseElements.forEach(element => {
+            element.style.maxHeight = '500px';
+            element.style.display = 'block';
+            element.style.visibility = 'visible';
+            element.style.opacity = '1';
+          });
+
+          // Also make sure parent menus are open
+          let parent = secuenciacionItem.closest('.has-submenu');
+          while (parent) {
+            parent.classList.add('active');
+            const parentSubmenu = parent.querySelector('.submenu');
+            if (parentSubmenu) {
+              parentSubmenu.style.maxHeight = `${parentSubmenu.scrollHeight}px`;
+              parentSubmenu.style.display = 'block';
+              parentSubmenu.style.visibility = 'visible';
+              parentSubmenu.style.opacity = '1';
+            }
+            parent = parent.parentElement.closest('.has-submenu');
+          }
+        } else {
+          console.log('No nested submenu found for:', secuenciacionItem.getAttribute('href'));
+        }
+      };
+
+      // Initialize all submenus to be hidden
+      document.querySelectorAll('.submenu').forEach(submenu => {
+        submenu.style.maxHeight = '0';
+      });
+
+      // Check if we're on a Secuenciación page
+      const currentHash = window.location.hash;
+      const isSecuenciacionPage = currentHash.includes('Secuenciacion');
+      console.log('Current hash:', currentHash, 'Is Secuenciacion page:', isSecuenciacionPage);
+
       // Debug helper to log CSS properties
       const logCSSProperties = (element) => {
         const submenu = element.querySelector('.submenu');
@@ -148,51 +209,116 @@ function Sidebar() {
         return isVisible;
       };
 
-      // Helper function to toggle submenu state
-      const toggleSubmenu = (element, force) => {
-        const wasActive = element.classList.contains('active');
-        const submenu = element.querySelector('.submenu');
-        
-        if (typeof force === 'boolean') {
-          if (force !== wasActive) {
-            element.classList[force ? 'add' : 'remove']('active');
+      // If we're on a Secuenciación page, show the phases menu
+      if (isSecuenciacionPage) {
+        const secuenciacionItem = document.querySelector(`a[href="${currentHash}"]`);
+        if (secuenciacionItem) {
+          // First, expand all parent menus
+          let parent = secuenciacionItem.closest('.has-submenu');
+          while (parent) {
+            parent.classList.add('active');
+            const parentSubmenu = parent.querySelector('.submenu');
+            if (parentSubmenu) {
+              parentSubmenu.style.maxHeight = `${parentSubmenu.scrollHeight}px`;
+              parentSubmenu.style.display = 'block';
+              parentSubmenu.style.visibility = 'visible';
+              parentSubmenu.style.opacity = '1';
+            }
+            parent = parent.parentElement.closest('.has-submenu');
           }
-        } else {
-          element.classList.toggle('active');
-        }
-        
-        // If this is a nested submenu, ensure parent stays open
-        const parentSubmenu = element.closest('.submenu');
-        if (parentSubmenu) {
-          const parentLi = parentSubmenu.closest('.has-submenu');
-          if (parentLi) {
-            parentLi.classList.add('active');
+
+          // Then set active class on the Secuenciación item
+          secuenciacionItem.classList.add('active');
+          
+          // Finally, show the phases menu
+          const nestedSubmenu = secuenciacionItem.nextElementSibling;
+          if (nestedSubmenu && nestedSubmenu.classList.contains('submenu-nested')) {
+            nestedSubmenu.style.maxHeight = `${nestedSubmenu.scrollHeight}px`;
+            nestedSubmenu.style.display = 'block';
+            nestedSubmenu.style.visibility = 'visible';
+            nestedSubmenu.style.opacity = '1';
+            
+            // Show all phase elements
+            const phaseElements = nestedSubmenu.querySelectorAll('.submenu-item');
+            phaseElements.forEach(element => {
+              element.style.maxHeight = '500px';
+              element.style.display = 'block';
+              element.style.visibility = 'visible';
+              element.style.opacity = '1';
+            });
           }
         }
+      }
+
+      // Set up menu items
+      document.querySelectorAll('.submenu-item').forEach(item => {
+        console.log('Setting up submenu item:', item.getAttribute('href'));
         
-        // Initialize submenu items if they haven't been initialized
-        if (submenu) {
-          const submenuItems = submenu.querySelectorAll('.submenu-item');
-          submenuItems.forEach(item => {
-            item.style.display = 'block';
-            item.style.visibility = 'visible';
-            item.style.opacity = '1';
+        item.addEventListener('click', (e) => {
+          if (item.classList.contains('submenu-toggle')) {
+            console.log('Skipping submenu toggle item');
+            return;
+          }
+          
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const href = item.getAttribute('href');
+          const isSecuenciacion = href?.includes('Secuenciacion');
+          const isFase = href?.includes('Fase');
+          
+          console.log('Menu item clicked:', {
+            href: href,
+            isActive: item.classList.contains('active'),
+            isSecuenciacion: isSecuenciacion,
+            isFase: isFase
           });
           
-          // Set appropriate maxHeight based on content
-          if (element.classList.contains('active')) {
-            const totalHeight = Array.from(submenu.children).reduce((height, child) => {
-              return height + child.offsetHeight;
-            }, 0);
-            submenu.style.maxHeight = `${totalHeight}px`;
-          } else {
-            submenu.style.maxHeight = '0';
+          // Remove active class from all items except the clicked one
+          document.querySelectorAll('.submenu-item').forEach(i => {
+            if (i !== item && i.classList.contains('active')) {
+              console.log('Removing active from:', i.getAttribute('href'));
+              i.classList.remove('active');
+            }
+          });
+          
+          // Add active class to clicked item
+          item.classList.add('active');
+          console.log('Added active class to:', href);
+          
+          // If this is a Secuenciación item, show its phases menu
+          if (isSecuenciacion) {
+            showPhasesMenu(item);
           }
-        }
-        
-        return wasActive;
-      };
-      
+          
+          // Keep all parent menus open
+          let parent = item.closest('.has-submenu');
+          while (parent) {
+            console.log('Keeping parent menu open:', {
+              href: parent.querySelector('a')?.getAttribute('href'),
+              wasActive: parent.classList.contains('active')
+            });
+            
+            parent.classList.add('active');
+            const parentSubmenu = parent.querySelector('.submenu');
+            if (parentSubmenu) {
+              parentSubmenu.style.maxHeight = `${parentSubmenu.scrollHeight}px`;
+            }
+            parent = parent.parentElement.closest('.has-submenu');
+          }
+          
+          if (href) {
+            console.log('Updating URL hash to:', href);
+            window.location.hash = href;
+            window.dispatchEvent(new HashChangeEvent('hashchange'));
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
       // Toggle submenu
       document.querySelectorAll('.submenu-toggle').forEach(toggle => {
         toggle.addEventListener('click', (e) => {
@@ -201,12 +327,26 @@ function Sidebar() {
           
           const parent = toggle.parentElement;
           const submenu = parent.querySelector('.submenu');
+          const href = toggle.getAttribute('href');
+          const isSecuenciacion = href?.includes('Secuenciacion');
+          const isFase = href?.includes('Fase');
           
           // If the menu is already active, close it
           if (parent.classList.contains('active')) {
             parent.classList.remove('active');
             if (submenu) {
               submenu.style.maxHeight = '0';
+            }
+            
+            // If closing Secuenciación, hide all phase elements
+            if (isSecuenciacion) {
+              const phaseElements = document.querySelectorAll('.submenu-nested .submenu-item');
+              phaseElements.forEach(element => {
+                element.style.maxHeight = '0';
+                element.style.display = 'none';
+                element.style.visibility = 'hidden';
+                element.style.opacity = '0';
+              });
             }
             return;
           }
@@ -232,6 +372,17 @@ function Sidebar() {
             submenu.style.maxHeight = `${totalHeight}px`;
           }
           
+          // If opening Secuenciación or a phase, show the phase elements
+          if (isSecuenciacion || isFase) {
+            const phaseElements = document.querySelectorAll('.submenu-nested .submenu-item');
+            phaseElements.forEach(element => {
+              element.style.maxHeight = '500px';
+              element.style.display = 'block';
+              element.style.visibility = 'visible';
+              element.style.opacity = '1';
+            });
+          }
+          
           // Keep parent menus open
           let currentParent = parent.parentElement.closest('.has-submenu');
           while (currentParent) {
@@ -247,65 +398,9 @@ function Sidebar() {
           }
 
           // Update URL hash
-          const href = toggle.getAttribute('href');
           if (href) {
             window.location.hash = href;
             window.dispatchEvent(new HashChangeEvent('hashchange'));
-          }
-        });
-      });
-
-      // Handle menu item clicks
-      document.querySelectorAll('.submenu-item').forEach(item => {
-        console.log('Setting up submenu item:', item.getAttribute('href'));
-        
-        item.addEventListener('click', (e) => {
-          if (item.classList.contains('submenu-toggle')) {
-            console.log('Skipping submenu toggle item');
-            return;
-          }
-          
-          e.preventDefault();
-          e.stopPropagation();
-          
-          console.log('Menu item clicked:', {
-            href: item.getAttribute('href'),
-            isActive: item.classList.contains('active')
-          });
-          
-          // Remove active class from all items
-          document.querySelectorAll('.submenu-item').forEach(i => {
-            if (i.classList.contains('active')) {
-              console.log('Removing active from:', i.getAttribute('href'));
-            }
-            i.classList.remove('active');
-          });
-          
-          // Add active class to clicked item
-          item.classList.add('active');
-          console.log('Added active class to:', item.getAttribute('href'));
-          
-          // Keep all parent menus open
-          let parent = item.closest('.has-submenu');
-          while (parent) {
-            console.log('Keeping parent menu open:', {
-              href: parent.querySelector('a')?.getAttribute('href'),
-              wasActive: parent.classList.contains('active')
-            });
-            
-            parent.classList.add('active');
-            parent = parent.parentElement.closest('.has-submenu');
-          }
-          
-          const href = item.getAttribute('href');
-          if (href) {
-            console.log('Updating URL hash to:', href);
-            window.location.hash = href;
-            window.dispatchEvent(new HashChangeEvent('hashchange'));
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
           }
         });
       });

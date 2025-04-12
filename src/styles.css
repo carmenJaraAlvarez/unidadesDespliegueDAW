@@ -99,23 +99,22 @@ header nav {
 
 .submenu-nested {
   background-color: rgba(255, 255, 255, 0.1);
-  display: block !important;
-  max-height: none !important;
-  overflow: visible !important;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
   position: relative;
   left: 0;
   width: 100%;
+  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .has-submenu.active .submenu-nested {
   max-height: 500px;
-}
-
-/* Estilos específicos para el submenu de Secuenciación en Unidad 1 */
-#Unidad1 .submenu-nested {
-  max-height: 500px;
   display: block;
-  background-color: rgba(255, 255, 255, 0.1);
+  visibility: visible;
+  opacity: 1;
 }
 
 .submenu-nested a {
@@ -123,6 +122,40 @@ header nav {
   font-size: 12px;
   display: block;
   width: 100%;
+  opacity: 1;
+  visibility: visible;
+  max-height: 500px;
+  transition: all 0.3s ease-out;
+}
+
+.has-submenu.active .submenu-nested a {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+.has-submenu.active .submenu-nested li {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  max-height: 500px;
+}
+
+.has-submenu.active .submenu-nested .submenu-item {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  max-height: 500px;
+}
+
+.has-submenu.active .submenu-nested .submenu-item.active {
+  background-color: #f0f5ff;
+  border-left: 4px solid var(--primary-color);
+}
+
+.has-submenu.active .submenu-nested .submenu-item.active span {
+  color: #0056b3;
 }
 
 .has-submenu > a {
@@ -684,4 +717,22 @@ footer a:hover {
 
 .sidebar-menu .submenu-item.active span {
   color: #0056b3;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  max-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.submenu {
+  transition: all 0.3s ease-in-out;
+}
+
+.submenu-nested .submenu-item {
+  transition: all 0.3s ease-in-out;
 } 
