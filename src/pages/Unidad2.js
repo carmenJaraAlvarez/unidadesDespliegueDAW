@@ -71,7 +71,7 @@ function Unidad2() {
             </a>
           </div>
           <div class="section-card">
-            <a href="#Unidad2/Secuenciacion">
+            <a href="#Unidad2/Secuenciacion/Secuenciacion">
               <h3>6. Secuenciación Didáctica</h3>
               <p>Planificación y actividades</p>
             </a>

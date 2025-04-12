@@ -27,7 +27,7 @@ function Sidebar() {
               <li><a href="#Unidad2/PrincipiosDUA" class="submenu-item"><span>3. Principios DUA</span></a></li>
               <li><a href="#Unidad2/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad2/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
-              <li><a href="#Unidad2/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a></li>
+              <li><a href="#Unidad2/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a></li>
               <li><a href="#Unidad2/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
             </ul>
           </li>
@@ -39,7 +39,7 @@ function Sidebar() {
               <li><a href="#Unidad3/PrincipiosDUA" class="submenu-item"><span>3. Principios DUA</span></a></li>
               <li><a href="#Unidad3/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad3/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
-              <li><a href="#Unidad3/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a></li>
+              <li><a href="#Unidad3/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a></li>
               <li><a href="#Unidad3/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
             </ul>
           </li>

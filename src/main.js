@@ -34,28 +34,36 @@ function loadPage(pageId) {
   // Check if it's a submenu item
   if (pageId.includes('/')) {
     const parts = pageId.split('/');
-    const unit = parts[0];
     
-    // For nested paths, try the full concatenated path first
-    const nestedPath = parts.slice(1).join('');
-    const componentName = unit + nestedPath;
+    // Try different component name formats
+    const componentName = parts.join('');
+    const alternativeComponentName = parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
     
-    console.log('Trying nested component:', componentName);
+    console.log('Trying component names:', componentName, alternativeComponentName);
     
     if (window[componentName]) {
       console.log('Found component:', componentName);
       pageContent.innerHTML = window[componentName]();
+    } else if (window[alternativeComponentName]) {
+      console.log('Found alternative component:', alternativeComponentName);
+      pageContent.innerHTML = window[alternativeComponentName]();
     } else {
-      // If component not found, clear the content and show error
-      console.error('Component not found:', componentName);
-      pageContent.innerHTML = `
-        <div class="content">
-          <h2>Error</h2>
-          <div class="content-section">
-            <p>No se pudo encontrar el contenido solicitado.</p>
+      // If component not found, try to load a default component for the unit
+      const unit = parts[0];
+      if (window[unit]) {
+        console.log('Loading default unit component:', unit);
+        pageContent.innerHTML = window[unit]();
+      } else {
+        console.error('No component found for:', pageId);
+        pageContent.innerHTML = `
+          <div class="content">
+            <h2>Error</h2>
+            <div class="content-section">
+              <p>No se pudo encontrar el contenido solicitado: ${pageId}</p>
+            </div>
           </div>
-        </div>
-      `;
+        `;
+      }
     }
   } else {
     // Load the main unit page
