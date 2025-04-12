@@ -2,36 +2,89 @@
 function loadComponent(componentId, componentFile) {
   const element = document.getElementById(componentId);
   if (element && window[componentFile]) {
-    element.innerHTML = window[componentFile]();
+    const component = window[componentFile]();
+    if (typeof component === 'object' && component.template && component.init) {
+      element.innerHTML = component.template;
+      // Initialize the component after DOM insertion
+      setTimeout(() => component.init(), 0);
+    } else {
+      element.innerHTML = component;
+    }
+  } else {
+    console.error(`Component ${componentFile} not found or element ${componentId} not found`);
   }
 }
 
 // Función para cargar páginas
 function loadPage(pageId) {
   const pageContent = document.getElementById('page-content');
-  if (!pageContent) return;
+  if (!pageContent) {
+    console.error('Page content element not found');
+    return;
+  }
+
+  console.log('Loading page:', pageId);
+
+  // Si no hay pageId o es 'inicio', cargar Home
+  if (!pageId || pageId === 'inicio' || pageId === 'Home') {
+    pageContent.innerHTML = window.Home();
+    return;
+  }
 
   // Check if it's a submenu item
   if (pageId.includes('/')) {
-    const [unit, section] = pageId.split('/');
-    // Try to load the section component with unit prefix
-    const componentName = unit + section;
-    console.log('Looking for component:', componentName); // Debug log
+    const parts = pageId.split('/');
+    
+    // Try different component name formats
+    const componentName = parts.join('');
+    const alternativeComponentName = parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+    const nestedComponentName = parts[0] + parts.slice(1).map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+    
+    console.log('Trying component names:', componentName, alternativeComponentName, nestedComponentName);
     
     if (window[componentName]) {
+      console.log('Found component:', componentName);
       pageContent.innerHTML = window[componentName]();
-      return;
+    } else if (window[alternativeComponentName]) {
+      console.log('Found alternative component:', alternativeComponentName);
+      pageContent.innerHTML = window[alternativeComponentName]();
+    } else if (window[nestedComponentName]) {
+      console.log('Found nested component:', nestedComponentName);
+      pageContent.innerHTML = window[nestedComponentName]();
     } else {
-      console.log('Section component not found:', componentName); // Debug log
+      // If component not found, try to load a default component for the unit
+      const unit = parts[0];
+      if (window[unit]) {
+        console.log('Loading default unit component:', unit);
+        pageContent.innerHTML = window[unit]();
+      } else {
+        console.error('No component found for:', pageId);
+        pageContent.innerHTML = `
+          <div class="content">
+            <h2>Error</h2>
+            <div class="content-section">
+              <p>No se pudo encontrar el contenido solicitado: ${pageId}</p>
+            </div>
+          </div>
+        `;
+      }
     }
-  }
-
-  // If not a submenu item or section not found, load the main unit page
-  const mainPageId = pageId.split('/')[0].replace('#', '');
-  if (window[mainPageId]) {
-    pageContent.innerHTML = window[mainPageId]();
   } else {
-    console.log('Main page component not found:', mainPageId); // Debug log
+    // Load the main unit page
+    if (window[pageId]) {
+      console.log('Found main unit page:', pageId);
+      pageContent.innerHTML = window[pageId]();
+    } else {
+      console.error('Main unit page not found:', pageId);
+      pageContent.innerHTML = `
+        <div class="content">
+          <h2>Error</h2>
+          <div class="content-section">
+            <p>No se pudo encontrar el contenido solicitado.</p>
+          </div>
+        </div>
+      `;
+    }
   }
 }
 
@@ -80,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadComponent('footer', 'Footer');
 
   // Cargar página inicial o página actual según el hash
-  const hash = window.location.hash.slice(1) || 'Home';
+  const hash = window.location.hash.slice(1) || 'inicio';
   loadPage(hash);
 
   // Abrir el submenú correspondiente después de un breve retraso
@@ -88,9 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Manejar navegación
   window.addEventListener('hashchange', () => {
-    const hash = window.location.hash.slice(1) || 'Home';
+    const hash = window.location.hash.slice(1);
     loadPage(hash);
     // Abrir el submenú correspondiente después de cargar la página
     setTimeout(openCurrentSubmenu, 100);
   });
 });
+
+

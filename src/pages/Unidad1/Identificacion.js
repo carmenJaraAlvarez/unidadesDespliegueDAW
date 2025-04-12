@@ -3,17 +3,17 @@ function Unidad1Identificacion() {
     <div class="content">
       <h2>1. Datos de Identificación</h2>
       <div class="content-section">
-        <h3>Unidad 1: La Paz es Compartir</h3>
         <div class="identification-data">
-          <p><strong>Módulo:</strong> Desarrollo de Aplicaciones Web</p>
-          <p><strong>Curso:</strong> 2º DAW</p>
-          <p><strong>Duración:</strong> 10 sesiones</p>
-          <p><strong>Trimestre:</strong> Primer trimestre</p>
+          <p><strong>Título:</strong> La paz es compartir</p>
+          <p><strong>Materia:</strong> Despliegue de aplicaciones web de DAW</p>
+          <p><strong>Curso:</strong> 2º</p>
+          <p><strong>Temporalización:</strong> 12 horas lectivas (3 semanas)</p>
+          <p><strong>Referencia:</strong> <a href="https://es.wikipedia.org/wiki/Cultura_de_la_paz" target="_blank">Cultura de la paz</a></p>
         </div>
       </div>
     </div>
   `;
 }
 
-// Make the component globally available with a unique name
+// Make the component globally available
 window.Unidad1Identificacion = Unidad1Identificacion; 

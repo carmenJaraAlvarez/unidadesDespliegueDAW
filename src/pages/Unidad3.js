@@ -1,47 +1,92 @@
-import Identificacion from './Unidad3/Identificacion.js';
-import Justificacion from './Unidad3/Justificacion.js';
-import PrincipiosDUA from './Unidad3/PrincipiosDUA.js';
-import Descripcion from './Unidad3/Descripcion.js';
-import Concrecion from './Unidad3/Concrecion.js';
-import Secuenciacion from './Unidad3/Secuenciacion.js';
-import Evaluacion from './Unidad3/Evaluacion.js';
-
 function Unidad3() {
   return `
-        <section id="Unidad3" class="content-box">
-            <h2>Unidad 3: Defenderse o morir</h2>
-            <p class="subtitle">Seguridad en Aplicaciones Web</p>
-            <div class="green-line"></div>
+    <div class="content">
+      <section class="unit-hero">
+        <div class="unit-hero-content">
+          <i class="fas fa-server hero-icon"></i>
+          <h1>Unidad 3: Despliegue de Aplicaciones Web</h1>
+          <p class="unit-subtitle">Automatización y control de versiones</p>
+        </div>
+      </section>
 
-            <div id="Unidad3/Identificacion" class="section-content">
-                ${window.Unidad3Identificacion ? window.Unidad3Identificacion() : ''}
-            </div>
+      <section class="unit-overview">
+        <div class="overview-grid">
+          <div class="overview-card">
+            <i class="fas fa-clock"></i>
+            <h3>Duración</h3>
+            <p>12 sesiones</p>
+          </div>
+          <div class="overview-card">
+            <i class="fas fa-calendar"></i>
+            <h3>Trimestre</h3>
+            <p>Primer trimestre</p>
+          </div>
+          <div class="overview-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Curso</h3>
+            <p>2º DAW</p>
+          </div>
+        </div>
+      </section>
 
-            <div id="Unidad3/Justificacion" class="section-content">
-                ${window.Unidad3Justificacion ? window.Unidad3Justificacion() : ''}
-            </div>
+      <section class="unit-description">
+        <h2>Descripción de la Unidad</h2>
+        <div class="description-content">
+          <p>En esta unidad exploraremos las técnicas y herramientas modernas para el despliegue 
+             de aplicaciones web. Nos centraremos en la automatización de procesos, el control de 
+             versiones con Git y las mejores prácticas para garantizar despliegues seguros y eficientes.</p>
+        </div>
+      </section>
 
-            <div id="Unidad3/PrincipiosDUA" class="section-content">
-                ${window.Unidad3PrincipiosDUA ? window.Unidad3PrincipiosDUA() : ''}
-            </div>
-
-            <div id="Unidad3/Descripcion" class="section-content">
-                ${window.Unidad3Descripcion ? window.Unidad3Descripcion() : ''}
-            </div>
-
-            <div id="Unidad3/Concrecion" class="section-content">
-                ${window.Unidad3Concrecion ? window.Unidad3Concrecion() : ''}
-            </div>
-
-            <div id="Unidad3/Secuenciacion" class="section-content">
-                ${window.Unidad3Secuenciacion ? window.Unidad3Secuenciacion() : ''}
-            </div>
-
-            <div id="Unidad3/Evaluacion" class="section-content">
-                ${window.Unidad3Evaluacion ? window.Unidad3Evaluacion() : ''}
-            </div>
-        </section>
-    `;
+      <section class="unit-sections">
+        <h2>Contenidos de la Unidad</h2>
+        <div class="sections-grid">
+          <div class="section-card">
+            <a href="#Unidad3/Identificacion">
+              <h3>1. Datos de Identificación</h3>
+              <p>Información básica sobre la unidad didáctica</p>
+            </a>
+          </div>
+          <div class="section-card">
+            <a href="#Unidad3/Justificacion">
+              <h3>2. Justificación</h3>
+              <p>Relevancia y contexto de la unidad</p>
+            </a>
+          </div>
+          <div class="section-card">
+            <a href="#Unidad3/PrincipiosDUA">
+              <h3>3. Principios DUA</h3>
+              <p>Diseño Universal del Aprendizaje</p>
+            </a>
+          </div>
+          <div class="section-card">
+            <a href="#Unidad3/Descripcion">
+              <h3>4. Descripción del Producto Final</h3>
+              <p>Objetivos y resultados esperados</p>
+            </a>
+          </div>
+          <div class="section-card">
+            <a href="#Unidad3/Concrecion">
+              <h3>5. Concreción Curricular</h3>
+              <p>Competencias y criterios de evaluación</p>
+            </a>
+          </div>
+          <div class="section-card">
+            <a href="#Unidad3/Secuenciacion">
+              <h3>6. Secuenciación Didáctica</h3>
+              <p>Planificación y actividades</p>
+            </a>
+          </div>
+          <div class="section-card">
+            <a href="#Unidad3/Evaluacion">
+              <h3>7. Evaluación</h3>
+              <p>Criterios y métodos de evaluación</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  `;
 }
 
 // Make Unidad3 available globally

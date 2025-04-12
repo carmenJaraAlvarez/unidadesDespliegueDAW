@@ -1,51 +1,61 @@
 function Home() {
   return `
-        <section id="inicio" class="hero">
-            <div class="hero-content">
-                <h1>Desarrollo de Aplicaciones Web</h1>
-                <p>Propuesta Formativa: Unidades Didácticas</p>
-                <a href="#Unidad1" class="cta-button">Explorar Unidades</a>
-            </div>
-        </section>
+    <div class="content">
+      <h2>Propuesta Didáctica</h2>
 
-        <section id="unidades" class="services">
-            <h2>Unidades Didácticas</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Unidad 1: La Paz es Compartir</h3>
-                    <p>Colaboración y DevOps en el desarrollo web</p>
-                    <a href="#Unidad1" class="cta-button">Ver Unidad</a>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-cloud"></i>
-                    <h3>Unidad 2: Una nube sin agua</h3>
-                    <p>Computación en la nube y cambio climático</p>
-                    <a href="#Unidad2" class="cta-button">Ver Unidad</a>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Unidad 3: Defenderse o morir</h3>
-                    <p>Seguridad en Aplicaciones Web</p>
-                    <a href="#Unidad3" class="cta-button">Ver Unidad</a>
-                </div>
-            </div>
-        </section>
+      <section class="home-intro">
+        <div class="intro-content">
+          <p>Esta propuesta didáctica parcial ha sido elaborada por <strong>Carmen Jara Álvarez</strong>, durante el aprendizaje de la asignatura <strong>AEMI</strong> del Máster Universitario en Profesorado en Enseñanza Secundaria Obligatoria y Bachillerato Formación Profesional y Enseñanzas de Idiomas de la Universidad de Sevilla.</p>
+          
+        </div>
+      </section>
 
-        <section id="about" class="about">
-            <h2>Sobre el Proyecto</h2>
-            <div class="about-content">
-                <p>Esta propuesta formativa está diseñada para introducir a los estudiantes en el desarrollo de aplicaciones web modernas, 
-                   abordando temas fundamentales como la colaboración, DevOps, computación en la nube y seguridad web.</p>
-            </div>
-        </section>
+      <section class="home-framework">
+        <div class="framework-content">
+          <p>La propuesta formativa está alineada con la legislación vigente, asegurando que las unidades didácticas, los módulos profesionales y las competencias profesionales se adecuan a:</p>
+          
+          <ul class="legal-list">
+            <li>
+              <i class="fas fa-gavel"></i>
+              <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2002-12018" target="_blank">
+                Ley Orgánica 5/2002, de 19 de junio, sobre las Cualificaciones y la Formación Profesional.
+              </a>
+            </li>
+            <li>
+              <i class="fas fa-book-open"></i>
+              <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2003-17588" target="_blank">
+                Real Decreto 1128/2003 y Real Decreto 1087/2005, que regulan el Catálogo Nacional de Cualificaciones Profesionales y los módulos formativos.
+              </a>
+            </li>
+            <li>
+              <i class="fas fa-graduation-cap"></i>
+              <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2006-7899" target="_blank">
+                Ley Orgánica 2/2006, de 3 de mayo, sobre Educación y Real Decreto 1147/2011, que establece la ordenación general de la formación profesional en el sistema educativo.
+              </a>
+            </li>
+            <li>
+              <i class="fas fa-landmark"></i>
+              <a href="https://www.juntadeandalucia.es/boja/2008/182/1" target="_blank">
+                Decreto 436/2008 de la Ley 17/2007, que regula la formación profesional en Andalucía.
+              </a>
+            </li>
+            <li>
+              <i class="fas fa-file-alt"></i>
+              Las órdenes relacionadas que establecen los procedimientos de admisión y evaluación del alumnado en Andalucía.
+            </li>
+          </ul>
+        </div>
+      </section>
 
-        <section id="anexos" class="about">
-            <h2>Anexos</h2>
-            <div class="about-content">
-                <p>Consulta información adicional sobre el módulo y recursos complementarios.</p>
-                <a href="#Anexos" class="cta-button">Ver Anexos</a>
-            </div>
-        </section>
-    `;
+      <section class="home-conclusion">
+        <div class="conclusion-content">
+          <p>Este enfoque asegura que la formación no solo cumpla con los requisitos académicos, sino también con los requisitos legales para la obtención de la titulación oficial y la inserción laboral de nuestro alumnado.</p>
+        </div>
+      </section>
+      <p class="date">Septiembre 2025</p>
+    </div>
+  `;
 }
+
+// Make Home available globally
+window.Home = Home;
