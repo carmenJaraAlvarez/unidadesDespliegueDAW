@@ -113,9 +113,21 @@ function Sidebar() {
           e.preventDefault();
           const href = item.getAttribute('href');
           if (href) {
+            // Remove active class from all items
+            document.querySelectorAll('.submenu-item').forEach(i => {
+              i.classList.remove('active');
+            });
+            // Add active class to clicked item
+            item.classList.add('active');
+            
             window.location.hash = href;
             // Force a hashchange event
             window.dispatchEvent(new HashChangeEvent('hashchange'));
+            // Scroll to top
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
           }
         });
       });
