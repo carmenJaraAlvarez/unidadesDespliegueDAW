@@ -97,9 +97,32 @@ header nav {
   background-color: #fff;
 }
 
-.submenu a {
-  padding-left: 40px;
-  font-size: 13px;
+.submenu-nested {
+  background-color: rgba(255, 255, 255, 0.1);
+  display: block !important;
+  max-height: none !important;
+  overflow: visible !important;
+  position: relative;
+  left: 0;
+  width: 100%;
+}
+
+.has-submenu.active .submenu-nested {
+  max-height: 500px;
+}
+
+/* Estilos específicos para el submenu de Secuenciación en Unidad 1 */
+#Unidad1 .submenu-nested {
+  max-height: 500px;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.submenu-nested a {
+  padding-left: 60px;
+  font-size: 12px;
+  display: block;
+  width: 100%;
 }
 
 .has-submenu > a {

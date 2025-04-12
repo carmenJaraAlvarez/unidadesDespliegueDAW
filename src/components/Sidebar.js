@@ -15,7 +15,14 @@ function Sidebar() {
               <li><a href="#Unidad1/PrincipiosDUA" class="submenu-item"><span>3. Principios DUA</span></a></li>
               <li><a href="#Unidad1/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad1/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
-              <li><a href="#Unidad1/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a></li>
+              <li class="has-submenu">
+                <a href="#Unidad1/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a>
+                <ul class="submenu submenu-nested" style="display: block; max-height: none;">
+                  <li><a href="#Unidad1/Secuenciacion/FaseInicial" class="submenu-item"><span>Fase 1: Inicio</span></a></li>
+                  <li><a href="#Unidad1/Secuenciacion/FaseDesarrollo" class="submenu-item"><span>Fase 2: Desarrollo</span></a></li>
+                  <li><a href="#Unidad1/Secuenciacion/FaseSintesis" class="submenu-item"><span>Fase 3: Cierre</span></a></li>
+                </ul>
+              </li>
               <li><a href="#Unidad1/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
             </ul>
           </li>
@@ -27,7 +34,14 @@ function Sidebar() {
               <li><a href="#Unidad2/PrincipiosDUA" class="submenu-item"><span>3. Principios DUA</span></a></li>
               <li><a href="#Unidad2/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad2/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
-              <li><a href="#Unidad2/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a></li>
+              <li class="has-submenu">
+                <a href="#Unidad2/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a>
+                <ul class="submenu submenu-nested" style="display: block; max-height: none;">
+                  <li><a href="#Unidad2/Secuenciacion/FaseInicial" class="submenu-item"><span>6.1. Fase Inicial: Situamos al alumnado</span></a></li>
+                  <li><a href="#Unidad2/Secuenciacion/FaseDesarrollo" class="submenu-item"><span>6.2. Fase de Desarrollo</span></a></li>
+                  <li><a href="#Unidad2/Secuenciacion/FaseSintesis" class="submenu-item"><span>6.3. Fase de Síntesis</span></a></li>
+                </ul>
+              </li>
               <li><a href="#Unidad2/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
             </ul>
           </li>
@@ -39,7 +53,14 @@ function Sidebar() {
               <li><a href="#Unidad3/PrincipiosDUA" class="submenu-item"><span>3. Principios DUA</span></a></li>
               <li><a href="#Unidad3/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad3/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
-              <li><a href="#Unidad3/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a></li>
+              <li class="has-submenu">
+                <a href="#Unidad3/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a>
+                <ul class="submenu submenu-nested" style="display: block; max-height: none;">
+                  <li><a href="#Unidad3/Secuenciacion/FaseInicial" class="submenu-item"><span>6.1. Fase Inicial: Situamos al alumnado</span></a></li>
+                  <li><a href="#Unidad3/Secuenciacion/FaseDesarrollo" class="submenu-item"><span>6.2. Fase de Desarrollo</span></a></li>
+                  <li><a href="#Unidad3/Secuenciacion/FaseSintesis" class="submenu-item"><span>6.3. Fase de Síntesis</span></a></li>
+                </ul>
+              </li>
               <li><a href="#Unidad3/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
             </ul>
           </li>
