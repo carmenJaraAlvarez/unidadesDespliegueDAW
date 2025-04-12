@@ -33,23 +33,29 @@ function loadPage(pageId) {
 
   // Check if it's a submenu item
   if (pageId.includes('/')) {
-    const [unit, section] = pageId.split('/');
-    console.log('Loading section:', unit, section);
+    const parts = pageId.split('/');
+    const unit = parts[0];
     
-    // Try to load the section component with unit prefix
-    const componentName = unit + section;
-    const altComponentName = unit + section.charAt(0).toUpperCase() + section.slice(1);
+    // For nested paths, try the full concatenated path first
+    const nestedPath = parts.slice(1).join('');
+    const componentName = unit + nestedPath;
     
-    console.log('Trying component names:', componentName, altComponentName);
+    console.log('Trying nested component:', componentName);
     
     if (window[componentName]) {
       console.log('Found component:', componentName);
       pageContent.innerHTML = window[componentName]();
-    } else if (window[altComponentName]) {
-      console.log('Found alternative component:', altComponentName);
-      pageContent.innerHTML = window[altComponentName]();
     } else {
-      console.error('Component not found:', componentName, altComponentName);
+      // If component not found, clear the content and show error
+      console.error('Component not found:', componentName);
+      pageContent.innerHTML = `
+        <div class="content">
+          <h2>Error</h2>
+          <div class="content-section">
+            <p>No se pudo encontrar el contenido solicitado.</p>
+          </div>
+        </div>
+      `;
     }
   } else {
     // Load the main unit page
@@ -58,6 +64,14 @@ function loadPage(pageId) {
       pageContent.innerHTML = window[pageId]();
     } else {
       console.error('Main unit page not found:', pageId);
+      pageContent.innerHTML = `
+        <div class="content">
+          <h2>Error</h2>
+          <div class="content-section">
+            <p>No se pudo encontrar el contenido solicitado.</p>
+          </div>
+        </div>
+      `;
     }
   }
 }
@@ -121,3 +135,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(openCurrentSubmenu, 100);
   });
 });
+
+
