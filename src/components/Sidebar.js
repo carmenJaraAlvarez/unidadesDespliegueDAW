@@ -98,7 +98,25 @@ function Sidebar() {
           }
 
           // Update URL hash
-          window.location.hash = toggle.getAttribute('href');
+          const href = toggle.getAttribute('href');
+          if (href) {
+            window.location.hash = href;
+            // Force a hashchange event
+            window.dispatchEvent(new HashChangeEvent('hashchange'));
+          }
+        });
+      });
+
+      // Handle submenu item clicks
+      document.querySelectorAll('.submenu-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = item.getAttribute('href');
+          if (href) {
+            window.location.hash = href;
+            // Force a hashchange event
+            window.dispatchEvent(new HashChangeEvent('hashchange'));
+          }
         });
       });
 
