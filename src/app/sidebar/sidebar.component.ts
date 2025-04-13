@@ -115,8 +115,8 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     const submenu = parent.querySelector('.submenu') as HTMLElement | null;
     if (!submenu) return;
 
-    const href = toggle.getAttribute('href');
-    const isSecuenciacion = href?.includes('Secuenciacion || secuenciacion');
+    const routerLink = toggle.getAttribute('routerLink');
+    const isSecuenciacion = routerLink?.includes('secuenciacion') || submenuId === 'secuenciacion';
 
     // If menu is active, close it
     if (parent.classList.contains('active')) {
@@ -124,19 +124,15 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       submenu.style.maxHeight = '0';
       
       if (isSecuenciacion) {
-        const phaseElements = document.querySelectorAll('.submenu-nested .submenu-item');
-        phaseElements.forEach(element => {
-          const el = element as HTMLElement;
-          el.style.maxHeight = '0';
-          el.style.display = 'none';
-          el.style.visibility = 'hidden';
-          el.style.opacity = '0';
-        });
+        const nestedSubmenu = parent.querySelector('.submenu-nested') as HTMLElement | null;
+        if (nestedSubmenu) {
+          nestedSubmenu.style.maxHeight = '0';
+        }
       }
       return;
     }
 
-    // Close other menus at same level
+    // Close all other menus at the same level
     const parentElement = parent.parentElement;
     if (parentElement) {
       const siblings = parentElement.querySelectorAll('.has-submenu');
@@ -154,63 +150,55 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     // Open clicked menu
     parent.classList.add('active');
     
-    // Calculate total height including nested submenus
-    const calculateTotalHeight = (menu: HTMLElement): number => {
-      let totalHeight = 0;
-      Array.from(menu.children).forEach(child => {
-        const childElement = child as HTMLElement;
-        totalHeight += childElement.offsetHeight;
-        
-        // If this item has a nested submenu, add its height too
-        const nestedSubmenu = childElement.querySelector('.submenu-nested') as HTMLElement | null;
-        if (nestedSubmenu) {
-          totalHeight += calculateTotalHeight(nestedSubmenu);
-        }
-      });
-      return totalHeight;
-    };
-
-    const totalHeight = calculateTotalHeight(submenu);
-    submenu.style.maxHeight = `${totalHeight}px`;
-
-    // Handle Secuenciacion special case
+    // Calculate total height including nested submenus if it's secuenciacion
     if (isSecuenciacion) {
-      const phaseElements = document.querySelectorAll('.submenu-nested .submenu-item');
-      phaseElements.forEach(element => {
-        const el = element as HTMLElement;
-        el.style.maxHeight = '500px';
-        el.style.display = 'block';
-        el.style.visibility = 'visible';
-        el.style.opacity = '1';
-      });
-    }
-
-    // Keep parent menus open
-    let currentParent = parent.parentElement?.closest('.has-submenu') as HTMLElement | null;
-    while (currentParent) {
-      currentParent.classList.add('active');
-      const parentSubmenu = currentParent.querySelector('.submenu') as HTMLElement | null;
-      if (parentSubmenu) {
-        const parentTotalHeight = calculateTotalHeight(parentSubmenu);
-        parentSubmenu.style.maxHeight = `${parentTotalHeight}px`;
+      const nestedSubmenu = parent.querySelector('.submenu-nested') as HTMLElement | null;
+      if (nestedSubmenu) {
+        // First set the nested submenu height so it's included in parent's scrollHeight
+        nestedSubmenu.style.maxHeight = `${nestedSubmenu.scrollHeight}px`;
+        // Then set parent submenu height including the nested one
+        submenu.style.maxHeight = `${submenu.scrollHeight}px`;
       }
-      const nextParent = currentParent.parentElement;
-      currentParent = nextParent ? nextParent.closest('.has-submenu') as HTMLElement | null : null;
+    } else {
+      submenu.style.maxHeight = `${submenu.scrollHeight}px`;
     }
   }
 
   private handleRouteChange() {
     const currentPath = this.router.url;
-    const isSecuenciacionPage = currentPath.includes('Secuenciacion || secuenciacion');
+    
+    // Close all submenus first
+    this.closeAllSubmenus();
     
     // Scroll to top of the page
     window.scrollTo(0, 0);
     
-    if (isSecuenciacionPage) {
-      const secuenciacionItem = document.querySelector(`a[href="${currentPath}"]`) as HTMLElement | null;
-      if (secuenciacionItem) {
-        this.showPhasesMenu(secuenciacionItem);
+    // Find the current active link
+    const activeLink = document.querySelector(`a[routerLink="${currentPath}"]`) as HTMLElement | null;
+    if (!activeLink) return;
+    
+    // Get all parent menus of the active link
+    let currentElement = activeLink.closest('li') as HTMLElement | null;
+    while (currentElement) {
+      const parentMenu = currentElement.closest('.has-submenu') as HTMLElement | null;
+      if (parentMenu) {
+        // Open the parent menu
+        parentMenu.classList.add('active');
+        const submenu = parentMenu.querySelector('.submenu') as HTMLElement | null;
+        if (submenu) {
+          submenu.style.maxHeight = `${submenu.scrollHeight}px`;
+        }
+        
+        // Only open secuenciacion submenu if we're actually in a secuenciacion page
+        const secuenciacionLink = parentMenu.querySelector('a[routerLink*="secuenciacion"]');
+        if (secuenciacionLink && currentPath.includes('secuenciacion')) {
+          const nestedSubmenu = parentMenu.querySelector('.submenu-nested') as HTMLElement | null;
+          if (nestedSubmenu) {
+            nestedSubmenu.style.maxHeight = `${nestedSubmenu.scrollHeight}px`;
+          }
+        }
       }
+      currentElement = parentMenu?.parentElement as HTMLElement | null;
     }
   }
 
