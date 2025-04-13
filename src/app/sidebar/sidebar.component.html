@@ -74,20 +74,23 @@
             <i class="fas fa-chevron-down"></i>
           </a>
           <ul id="unidad2" class="submenu">
-            <li><a href="#Unidad2/Identificacion" class="submenu-item"><span>1. Datos de Identificación</span></a></li>
-            <li><a href="#Unidad2/Justificacion" class="submenu-item"><span>2. Justificación</span></a></li>
-            <li><a href="#Unidad2/PrincipiosDUA" class="submenu-item"><span>3. Principios DUA</span></a></li>
-            <li><a href="#Unidad2/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
-            <li><a href="#Unidad2/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
+            <li><a routerLink="/unidad2/identificacion" routerLinkActive="active" class="submenu-item"><span>1. Datos de Identificación</span></a></li>
+            <li><a routerLink="/unidad2/justificacion" routerLinkActive="active" class="submenu-item"><span>2. Justificación</span></a></li>
+            <li><a routerLink="/unidad2/principiosdua" routerLinkActive="active" class="submenu-item"><span>3. Principios DUA</span></a></li>
+            <li><a routerLink="/unidad2/descripcion" routerLinkActive="active" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
+            <li><a routerLink="/unidad2/concrecion" routerLinkActive="active" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
             <li class="has-submenu">
-              <a href="#Unidad2/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a>
-              <ul class="submenu submenu-nested">
-                <li><a href="#Unidad2/Secuenciacion/FaseInicial" class="submenu-item"><span>6.1. Fase Inicial: Situamos al alumnado</span></a></li>
-                <li><a href="#Unidad2/Secuenciacion/FaseDesarrollo" class="submenu-item"><span>6.2. Fase de Desarrollo</span></a></li>
-                <li><a href="#Unidad2/Secuenciacion/FaseSintesis" class="submenu-item"><span>6.3. Fase de Síntesis</span></a></li>
+              <a href="#" (click)="toggleSubmenu($event, 'secuenciacion2')" class="submenu-toggle submenu-item">
+                <span>6. Secuenciación Didáctica</span>
+                <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul id="secuenciacion2" class="submenu submenu-nested">
+                <li><a routerLink="/unidad2/secuenciacion/faseinicial" routerLinkActive="active" class="submenu-item"><span>6.1. Fase Inicial: Situamos al alumnado</span></a></li>
+                <li><a routerLink="/unidad2/secuenciacion/fasedesarrollo" routerLinkActive="active" class="submenu-item"><span>6.2. Fase de Desarrollo</span></a></li>
+                <li><a routerLink="/unidad2/secuenciacion/fasesintesis" routerLinkActive="active" class="submenu-item"><span>6.3. Fase de Síntesis</span></a></li>
               </ul>
             </li>
-            <li><a href="#Unidad2/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
+            <li><a routerLink="/unidad2/evaluacion" routerLinkActive="active" class="submenu-item"><span>7. Evaluación</span></a></li>
           </ul>
         </li>
         <li class="has-submenu">
@@ -96,20 +99,23 @@
             <i class="fas fa-chevron-down"></i>
           </a>
           <ul id="unidad3" class="submenu">
-            <li><a href="#Unidad3/Identificacion" class="submenu-item"><span>1. Datos de Identificación</span></a></li>
-            <li><a href="#Unidad3/Justificacion" class="submenu-item"><span>2. Justificación</span></a></li>
-            <li><a href="#Unidad3/PrincipiosDUA" class="submenu-item"><span>3. Principios DUA</span></a></li>
-            <li><a href="#Unidad3/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
-            <li><a href="#Unidad3/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
+            <li><a routerLink="/unidad3/identificacion" routerLinkActive="active" class="submenu-item"><span>1. Datos de Identificación</span></a></li>
+            <li><a routerLink="/unidad3/justificacion" routerLinkActive="active" class="submenu-item"><span>2. Justificación</span></a></li>
+            <li><a routerLink="/unidad3/principiosdua" routerLinkActive="active" class="submenu-item"><span>3. Principios DUA</span></a></li>
+            <li><a routerLink="/unidad3/descripcion" routerLinkActive="active" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
+            <li><a routerLink="/unidad3/concrecion" routerLinkActive="active" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
             <li class="has-submenu">
-              <a href="#Unidad3/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a>
-              <ul class="submenu submenu-nested">
-                <li><a href="#Unidad3/Secuenciacion/FaseInicial" class="submenu-item"><span>6.1. Fase Inicial: Situamos al alumnado</span></a></li>
-                <li><a href="#Unidad3/Secuenciacion/FaseDesarrollo" class="submenu-item"><span>6.2. Fase de Desarrollo</span></a></li>
-                <li><a href="#Unidad3/Secuenciacion/FaseSintesis" class="submenu-item"><span>6.3. Fase de Síntesis</span></a></li>
+              <a href="#" (click)="toggleSubmenu($event, 'secuenciacion3')" class="submenu-toggle submenu-item">
+                <span>6. Secuenciación Didáctica</span>
+                <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul id="secuenciacion3" class="submenu submenu-nested">
+                <li><a routerLink="/unidad3/secuenciacion/faseinicial" routerLinkActive="active" class="submenu-item"><span>6.1. Fase Inicial: Situamos al alumnado</span></a></li>
+                <li><a routerLink="/unidad3/secuenciacion/fasedesarrollo" routerLinkActive="active" class="submenu-item"><span>6.2. Fase de Desarrollo</span></a></li>
+                <li><a routerLink="/unidad3/secuenciacion/fasesintesis" routerLinkActive="active" class="submenu-item"><span>6.3. Fase de Síntesis</span></a></li>
               </ul>
             </li>
-            <li><a href="#Unidad3/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
+            <li><a routerLink="/unidad3/evaluacion" routerLinkActive="active" class="submenu-item"><span>7. Evaluación</span></a></li>
           </ul>
         </li>
         <li class="has-submenu">
