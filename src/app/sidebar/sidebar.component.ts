@@ -172,6 +172,9 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     const currentPath = this.router.url;
     const isSecuenciacionPage = currentPath.includes('Secuenciacion');
     
+    // Scroll to top of the page
+    window.scrollTo(0, 0);
+    
     if (isSecuenciacionPage) {
       const secuenciacionItem = document.querySelector(`a[href="${currentPath}"]`) as HTMLElement | null;
       if (secuenciacionItem) {
