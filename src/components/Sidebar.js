@@ -274,12 +274,14 @@ function Sidebar() {
             isFase: isFase
           });
           
-          // Remove active class from all items except the clicked one
+          // Remove active class from all items
           document.querySelectorAll('.submenu-item').forEach(i => {
-            if (i !== item && i.classList.contains('active')) {
-              console.log('Removing active from:', i.getAttribute('href'));
-              i.classList.remove('active');
-            }
+            i.classList.remove('active');
+          });
+          
+          // Remove active class from all parent menus
+          document.querySelectorAll('.has-submenu').forEach(menu => {
+            menu.classList.remove('active');
           });
           
           // Add active class to clicked item
@@ -291,18 +293,24 @@ function Sidebar() {
             showPhasesMenu(item);
           }
           
-          // Keep all parent menus open
+          // Keep only the necessary parent menus open
           let parent = item.closest('.has-submenu');
           while (parent) {
-            console.log('Keeping parent menu open:', {
-              href: parent.querySelector('a')?.getAttribute('href'),
-              wasActive: parent.classList.contains('active')
+            const parentHref = parent.querySelector('a')?.getAttribute('href');
+            console.log('Processing parent menu:', {
+              href: parentHref,
+              isCurrentPath: href.includes(parentHref)
             });
             
-            parent.classList.add('active');
-            const parentSubmenu = parent.querySelector('.submenu');
-            if (parentSubmenu) {
-              parentSubmenu.style.maxHeight = `${parentSubmenu.scrollHeight}px`;
+            if (href.includes(parentHref)) {
+              parent.classList.add('active');
+              const parentSubmenu = parent.querySelector('.submenu');
+              if (parentSubmenu) {
+                parentSubmenu.style.maxHeight = `${parentSubmenu.scrollHeight}px`;
+                parentSubmenu.style.display = 'block';
+                parentSubmenu.style.visibility = 'visible';
+                parentSubmenu.style.opacity = '1';
+              }
             }
             parent = parent.parentElement.closest('.has-submenu');
           }
