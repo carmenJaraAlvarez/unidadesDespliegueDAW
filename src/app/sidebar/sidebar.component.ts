@@ -135,9 +135,24 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 
     // Open clicked menu
     parent.classList.add('active');
-    const totalHeight = Array.from(submenu.children).reduce((height, child) => {
-      return height + (child as HTMLElement).offsetHeight;
-    }, 0);
+    
+    // Calculate total height including nested submenus
+    const calculateTotalHeight = (menu: HTMLElement): number => {
+      let totalHeight = 0;
+      Array.from(menu.children).forEach(child => {
+        const childElement = child as HTMLElement;
+        totalHeight += childElement.offsetHeight;
+        
+        // If this item has a nested submenu, add its height too
+        const nestedSubmenu = childElement.querySelector('.submenu-nested') as HTMLElement | null;
+        if (nestedSubmenu) {
+          totalHeight += calculateTotalHeight(nestedSubmenu);
+        }
+      });
+      return totalHeight;
+    };
+
+    const totalHeight = calculateTotalHeight(submenu);
     submenu.style.maxHeight = `${totalHeight}px`;
 
     // Handle Secuenciacion special case
@@ -158,10 +173,8 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       currentParent.classList.add('active');
       const parentSubmenu = currentParent.querySelector('.submenu') as HTMLElement | null;
       if (parentSubmenu) {
-        const totalHeight = Array.from(parentSubmenu.children).reduce((height, child) => {
-          return height + (child as HTMLElement).offsetHeight;
-        }, 0);
-        parentSubmenu.style.maxHeight = `${totalHeight}px`;
+        const parentTotalHeight = calculateTotalHeight(parentSubmenu);
+        parentSubmenu.style.maxHeight = `${parentTotalHeight}px`;
       }
       const nextParent = currentParent.parentElement;
       currentParent = nextParent ? nextParent.closest('.has-submenu') as HTMLElement | null : null;
