@@ -116,7 +116,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     if (!submenu) return;
 
     const href = toggle.getAttribute('href');
-    const isSecuenciacion = href?.includes('Secuenciacion');
+    const isSecuenciacion = href?.includes('Secuenciacion || secuenciacion');
 
     // If menu is active, close it
     if (parent.classList.contains('active')) {
@@ -201,7 +201,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 
   private handleRouteChange() {
     const currentPath = this.router.url;
-    const isSecuenciacionPage = currentPath.includes('Secuenciacion');
+    const isSecuenciacionPage = currentPath.includes('Secuenciacion || secuenciacion');
     
     // Scroll to top of the page
     window.scrollTo(0, 0);
