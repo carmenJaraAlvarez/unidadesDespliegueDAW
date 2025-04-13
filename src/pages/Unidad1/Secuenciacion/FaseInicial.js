@@ -3,8 +3,8 @@ function Unidad1SecuenciacionFaseInicial() {
     <div class="content">
       <h2>6.1. Fase Inicial</h2>
       <div class="content-section">
+        <h4>1. Introducción a la cultura DevOps</h4>
         <div class="actividad-card">
-          <h4>1. Introducción a la cultura DevOps</h4>
           <div class="actividad-details">
             <p><strong>Descripción:</strong> Exploración de los principios fundamentales de DevOps y su relación con la cultura de paz en el desarrollo de software.</p>
             <p><strong>Recursos:</strong></p>
@@ -26,8 +26,8 @@ function Unidad1SecuenciacionFaseInicial() {
           </div>
         </div>
 
+        <h4>2. Análisis de necesidades y planificación</h4>
         <div class="actividad-card">
-          <h4>2. Análisis de necesidades y planificación</h4>
           <div class="actividad-details">
             <p><strong>Descripción:</strong> Los estudiantes identifican necesidades específicas para el despliegue de aplicaciones y planifican su proyecto.</p>
             <p><strong>Recursos:</strong></p>
@@ -66,21 +66,20 @@ function Unidad1SecuenciacionFaseInicial() {
         border-bottom: 2px solid #1976D2;
       }
 
+      h4 {
+        color: #1976D2;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+      }
+
       .actividad-card {
-        margin: 2rem 0;
+        margin: 0 0 2rem 0;
         padding: 1.5rem;
-        border: 1px solid #1976D2;
+        border: 2px solid #1976D2;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         background-color: white;
-      }
-
-      .actividad-card h4 {
-        color: #1976D2;
-        margin-top: 0;
-        margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 2px solid #1976D2;
       }
 
       .subactividad {
