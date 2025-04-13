@@ -64,6 +64,7 @@ body {
     z-index: 98;
     margin-top: 0;
     border-top: none;
+    transition: transform 0.3s ease-in-out;
   }
   
   .sidebar-menu ul {
@@ -228,11 +229,13 @@ body {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
   }
   
   .burger-menu i {
     font-size: 24px;
     color: #0056b3;
+    transition: color 0.3s ease-in-out;
   }
   
   .burger-menu.active i {
@@ -296,28 +299,19 @@ body {
     }
   
     .sidebar {
-      top: 80px;
-      height: calc(100vh - 80px);
-      transform: translateX(-100%);
-      transition: transform 0.3s ease-in-out;
-    }
-  
-    .sidebar.active {
-      transform: translateX(0);
+      transform: translateX(-250px);
     }
   
     .main-content {
-      margin-left: 0;
-      padding: 100px 30px 70px;
+      margin-left: 0 !important;
     }
   
-    header {
-      left: 0;
-      padding-right: 70px;
+    footer {
+      left: 0 !important;
     }
   
-    footer, footer::after {
-      left: 0;
+    footer::after {
+      left: 0 !important;
     }
   }
   

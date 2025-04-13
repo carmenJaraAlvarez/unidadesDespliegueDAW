@@ -12,6 +12,8 @@ import { filter } from 'rxjs/operators';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent implements OnInit, AfterViewInit {
+  isSidebarOpen = true;
+
   constructor(private router: Router) {}
 
   ngOnInit() {
@@ -34,6 +36,14 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     if (inicioLink) {
       inicioLink.addEventListener('click', () => {
         this.closeAllSubmenus();
+      });
+    }
+
+    // Add click handler for burger menu
+    const burgerMenu = document.querySelector('.burger-menu');
+    if (burgerMenu) {
+      burgerMenu.addEventListener('click', () => {
+        this.toggleSidebar();
       });
     }
   }
@@ -266,5 +276,27 @@ export class SidebarComponent implements OnInit, AfterViewInit {
       const submenuElement = submenu as HTMLElement;
       submenuElement.style.maxHeight = '0';
     });
+  }
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+    const sidebar = document.querySelector('.sidebar') as HTMLElement;
+    const mainContent = document.querySelector('.main-content') as HTMLElement;
+    const footer = document.querySelector('footer') as HTMLElement;
+    const burgerMenu = document.querySelector('.burger-menu') as HTMLElement;
+
+    if (sidebar && mainContent && footer && burgerMenu) {
+      if (this.isSidebarOpen) {
+        sidebar.style.transform = 'translateX(0)';
+        mainContent.style.marginLeft = '250px';
+        footer.style.left = '250px';
+        burgerMenu.classList.remove('active');
+      } else {
+        sidebar.style.transform = 'translateX(-250px)';
+        mainContent.style.marginLeft = '0';
+        footer.style.left = '0';
+        burgerMenu.classList.add('active');
+      }
+    }
   }
 }
