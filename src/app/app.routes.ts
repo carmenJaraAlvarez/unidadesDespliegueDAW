@@ -5,21 +5,21 @@ import { JustificationComponent } from './body/unit1/justification/justification
 import { DuaComponent } from './body/unit1/dua/dua.component';
 import { DescriptionComponent } from './body/unit1/description/description.component';
 import { SpecificationComponent } from './body/unit1/specification/specification.component';
-import { SequencingComponent } from './body/unit1/sequencing/sequencing.component';
+import { SequencingComponent } from './body/unit1/sequencing/sequencing/sequencing.component';
 import { EvaluationComponent } from './body/unit1/evaluation/evaluation.component';
 import { IdentificationComponent as Unit2IdentificationComponent } from './body/unit2/identification/identification.component';
 import { JustificationComponent as Unit2JustificationComponent } from './body/unit2/justification/justification.component';
 import { DuaComponent as Unit2DuaComponent } from './body/unit2/dua/dua.component';
 import { DescriptionComponent as Unit2DescriptionComponent } from './body/unit2/description/description.component';
 import { SpecificationComponent as Unit2SpecificationComponent } from './body/unit2/specification/specification.component';
-import { SequencingComponent as Unit2SequencingComponent } from './body/unit2/sequencing/sequencing.component';
+import { SequencingComponent as Unit2SequencingComponent } from './body/unit2/sequencing/sequencing/sequencing.component';
 import { EvaluationComponent as Unit2EvaluationComponent } from './body/unit2/evaluation/evaluation.component';
 import { IdentificationComponent as Unit3IdentificationComponent } from './body/unit3/identification/identification.component';
 import { JustificationComponent as Unit3JustificationComponent } from './body/unit3/justification/justification.component';
 import { DuaComponent as Unit3DuaComponent } from './body/unit3/dua/dua.component';
 import { DescriptionComponent as Unit3DescriptionComponent } from './body/unit3/description/description.component';
 import { SpecificationComponent as Unit3SpecificationComponent } from './body/unit3/specification/specification.component';
-import { SequencingComponent as Unit3SequencingComponent } from './body/unit3/sequencing/sequencing.component';
+import { SequencingComponent as Unit3SequencingComponent } from './body/unit3/sequencing/sequencing/sequencing.component';
 import { EvaluationComponent as Unit3EvaluationComponent } from './body/unit3/evaluation/evaluation.component';
 
 export const routes: Routes = [
