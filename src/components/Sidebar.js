@@ -16,11 +16,11 @@ function Sidebar() {
               <li><a href="#Unidad1/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad1/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
               <li class="has-submenu">
-                <a href="#Unidad1/Secuenciacion/Secuenciacion" class="submenu-toggle"><span>6. Secuenciación Didáctica</span><i class="fas fa-chevron-down"></i></a>
-                <ul class="submenu">
-                  <li><a href="#Unidad1/Secuenciacion/FaseInicial" class="submenu-item"><span>6.1. Fase Inicial</span></a></li>
-                  <li><a href="#Unidad1/Secuenciacion/FaseDesarrollo" class="submenu-item"><span>6.2. Fase de Desarrollo</span></a></li>
-                  <li><a href="#Unidad1/Secuenciacion/FaseSintesis" class="submenu-item"><span>6.3. Fase de Síntesis</span></a></li>
+                <a href="#Unidad1/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a>
+                <ul class="submenu submenu-nested" style="display: block; max-height: none;">
+                  <li><a href="#Unidad1/Secuenciacion/FaseInicial" class="submenu-item"><span>Fase 1: Inicio</span></a></li>
+                  <li><a href="#Unidad1/Secuenciacion/FaseDesarrollo" class="submenu-item"><span>Fase 2: Desarrollo</span></a></li>
+                  <li><a href="#Unidad1/Secuenciacion/FaseSintesis" class="submenu-item"><span>Fase 3: Cierre</span></a></li>
                 </ul>
               </li>
               <li><a href="#Unidad1/Evaluacion" class="submenu-item"><span>7. Evaluación</span></a></li>
@@ -35,8 +35,8 @@ function Sidebar() {
               <li><a href="#Unidad2/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad2/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
               <li class="has-submenu">
-                <a href="#Unidad2/Secuenciacion/Secuenciacion" class="submenu-toggle"><span>6. Secuenciación Didáctica</span><i class="fas fa-chevron-down"></i></a>
-                <ul class="submenu">
+                <a href="#Unidad2/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a>
+                <ul class="submenu submenu-nested" style="display: block; max-height: none;">
                   <li><a href="#Unidad2/Secuenciacion/FaseInicial" class="submenu-item"><span>6.1. Fase Inicial: Situamos al alumnado</span></a></li>
                   <li><a href="#Unidad2/Secuenciacion/FaseDesarrollo" class="submenu-item"><span>6.2. Fase de Desarrollo</span></a></li>
                   <li><a href="#Unidad2/Secuenciacion/FaseSintesis" class="submenu-item"><span>6.3. Fase de Síntesis</span></a></li>
@@ -54,8 +54,8 @@ function Sidebar() {
               <li><a href="#Unidad3/Descripcion" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
               <li><a href="#Unidad3/Concrecion" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
               <li class="has-submenu">
-                <a href="#Unidad3/Secuenciacion/Secuenciacion" class="submenu-toggle"><span>6. Secuenciación Didáctica</span><i class="fas fa-chevron-down"></i></a>
-                <ul class="submenu">
+                <a href="#Unidad3/Secuenciacion/Secuenciacion" class="submenu-item"><span>6. Secuenciación Didáctica</span></a>
+                <ul class="submenu submenu-nested" style="display: block; max-height: none;">
                   <li><a href="#Unidad3/Secuenciacion/FaseInicial" class="submenu-item"><span>6.1. Fase Inicial: Situamos al alumnado</span></a></li>
                   <li><a href="#Unidad3/Secuenciacion/FaseDesarrollo" class="submenu-item"><span>6.2. Fase de Desarrollo</span></a></li>
                   <li><a href="#Unidad3/Secuenciacion/FaseSintesis" class="submenu-item"><span>6.3. Fase de Síntesis</span></a></li>
@@ -79,6 +79,67 @@ function Sidebar() {
     template,
     init() {
       console.log('Initializing Sidebar component');
+
+      // Function to show phases menu
+      const showPhasesMenu = (secuenciacionItem) => {
+        if (!secuenciacionItem) return;
+        
+        console.log('Attempting to show phases menu for:', secuenciacionItem.getAttribute('href'));
+        
+        // Find the nested submenu
+        const parentLi = secuenciacionItem.closest('li');
+        const nestedSubmenu = parentLi.querySelector('.submenu-nested');
+        
+        if (nestedSubmenu) {
+          console.log('Found nested submenu:', {
+            display: nestedSubmenu.style.display,
+            visibility: nestedSubmenu.style.visibility,
+            opacity: nestedSubmenu.style.opacity,
+            height: '80em'
+          });
+          debugger;
+          // Show the nested submenu
+          nestedSubmenu.style.maxHeight = `${nestedSubmenu.scrollHeight}px`;
+          nestedSubmenu.style.display = 'block';
+          nestedSubmenu.style.visibility = 'visible';
+          nestedSubmenu.style.opacity = '1';
+          
+          // Show all phase elements
+          const phaseElements = nestedSubmenu.querySelectorAll('.submenu-item');
+          phaseElements.forEach(element => {
+            element.style.maxHeight = '500px';
+            element.style.display = 'block';
+            element.style.visibility = 'visible';
+            element.style.opacity = '1';
+          });
+
+          // Also make sure parent menus are open
+          let parent = secuenciacionItem.closest('.has-submenu');
+          while (parent) {
+            parent.classList.add('active');
+            const parentSubmenu = parent.querySelector('.submenu');
+            if (parentSubmenu) {
+              parentSubmenu.style.maxHeight = `${parentSubmenu.scrollHeight}px`;
+              parentSubmenu.style.display = 'block';
+              parentSubmenu.style.visibility = 'visible';
+              parentSubmenu.style.opacity = '1';
+            }
+            parent = parent.parentElement.closest('.has-submenu');
+          }
+        } else {
+          console.log('No nested submenu found for:', secuenciacionItem.getAttribute('href'));
+        }
+      };
+
+      // Initialize all submenus to be hidden
+      document.querySelectorAll('.submenu').forEach(submenu => {
+        submenu.style.maxHeight = '0';
+      });
+
+      // Check if we're on a Secuenciación page
+      const currentHash = window.location.hash;
+      const isSecuenciacionPage = currentHash.includes('Secuenciacion');
+      console.log('Current hash:', currentHash, 'Is Secuenciacion page:', isSecuenciacionPage);
 
       // Debug helper to log CSS properties
       const logCSSProperties = (element) => {
@@ -148,151 +209,48 @@ function Sidebar() {
         return isVisible;
       };
 
-      // Helper function to toggle submenu state
-      const toggleSubmenu = (element, force) => {
-        const wasActive = element.classList.contains('active');
-        const submenu = element.querySelector('.submenu');
-        
-        if (typeof force === 'boolean') {
-          if (force !== wasActive) {
-            element.classList[force ? 'add' : 'remove']('active');
-          }
-        } else {
-          element.classList.toggle('active');
-        }
-        
-        // If this is a nested submenu, ensure parent stays open
-        const parentSubmenu = element.closest('.submenu');
-        if (parentSubmenu) {
-          const parentLi = parentSubmenu.closest('.has-submenu');
-          if (parentLi) {
-            parentLi.classList.add('active');
-          }
-        }
-        
-        // Initialize submenu items if they haven't been initialized
-        if (submenu) {
-          const submenuItems = submenu.querySelectorAll('.submenu-item');
-          submenuItems.forEach(item => {
-            item.style.display = 'block';
-            item.style.visibility = 'visible';
-            item.style.opacity = '1';
-          });
-          
-          // Set appropriate maxHeight based on content
-          if (element.classList.contains('active')) {
-            const totalHeight = Array.from(submenu.children).reduce((height, child) => {
-              return height + child.offsetHeight;
-            }, 0);
-            submenu.style.maxHeight = `${totalHeight}px`;
-          } else {
-            submenu.style.maxHeight = '0';
-          }
-        }
-        
-        return wasActive;
-      };
-      
-      // Toggle submenu
-      document.querySelectorAll('.submenu-toggle').forEach(toggle => {
-        console.log('Setting up submenu toggle:', {
-          href: toggle.getAttribute('href'),
-          parentClass: toggle.parentElement.className,
-          isNested: toggle.closest('.submenu') !== null
-        });
-        
-        toggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          
-          const parent = toggle.parentElement;
-          console.log('Toggle clicked:', {
-            href: toggle.getAttribute('href'),
-            isActive: parent.classList.contains('active'),
-            parentClass: parent.className,
-            isNested: parent.closest('.submenu') !== null,
-            currentDisplay: parent.querySelector('.submenu')?.style.display,
-            currentVisibility: parent.querySelector('.submenu')?.style.visibility,
-            currentOpacity: parent.querySelector('.submenu')?.style.opacity,
-            currentMaxHeight: parent.querySelector('.submenu')?.style.maxHeight
-          });
-          
-          // Log menu structure before toggle
-          console.log('Menu structure before toggle:');
-          logMenuStructure(parent);
-          
-          // Toggle current submenu
-          const wasActive = toggleSubmenu(parent);
-          
-          // Wait for next frame
-          requestAnimationFrame(() => {
-            const isNowActive = parent.classList.contains('active');
-            console.log('After toggle and animation frame:', {
-              href: toggle.getAttribute('href'),
-              isActive: isNowActive,
-              submenuVisible: isSubmenuVisible(parent),
-              wasActive,
-              isNested: parent.closest('.submenu') !== null,
-              currentDisplay: parent.querySelector('.submenu')?.style.display,
-              currentVisibility: parent.querySelector('.submenu')?.style.visibility,
-              currentOpacity: parent.querySelector('.submenu')?.style.opacity,
-              currentMaxHeight: parent.querySelector('.submenu')?.style.maxHeight
-            });
-            
-            // Log menu structure after toggle
-            console.log('Menu structure after toggle:');
-            logMenuStructure(parent);
-          });
-          
-          // Close sibling submenus only at the same level
-          const siblings = parent.parentElement.querySelectorAll('.has-submenu');
-          console.log('Found siblings:', siblings.length);
-          
-          siblings.forEach(sibling => {
-            if (sibling !== parent) {
-              console.log('Closing sibling:', {
-                href: sibling.querySelector('a')?.getAttribute('href'),
-                wasActive: sibling.classList.contains('active'),
-                wasVisible: isSubmenuVisible(sibling),
-                isNested: sibling.closest('.submenu') !== null
-              });
-              
-              toggleSubmenu(sibling, false);
-              // Also close all nested submenus in siblings
-              const nestedMenus = sibling.querySelectorAll('.has-submenu');
-              console.log('Closing nested menus in sibling:', nestedMenus.length);
-              
-              nestedMenus.forEach(nested => {
-                toggleSubmenu(nested, false);
-              });
+      // If we're on a Secuenciación page, show the phases menu
+      if (isSecuenciacionPage) {
+        const secuenciacionItem = document.querySelector(`a[href="${currentHash}"]`);
+        if (secuenciacionItem) {
+          // First, expand all parent menus
+          let parent = secuenciacionItem.closest('.has-submenu');
+          while (parent) {
+            parent.classList.add('active');
+            const parentSubmenu = parent.querySelector('.submenu');
+            if (parentSubmenu) {
+              parentSubmenu.style.maxHeight = `${parentSubmenu.scrollHeight}px`;
+              parentSubmenu.style.display = 'block';
+              parentSubmenu.style.visibility = 'visible';
+              parentSubmenu.style.opacity = '1';
             }
-          });
+            parent = parent.parentElement.closest('.has-submenu');
+          }
+
+          // Then set active class on the Secuenciación item
+          secuenciacionItem.classList.add('active');
           
-          // Keep parent menus open
-          let currentParent = parent.parentElement.closest('.has-submenu');
-          while (currentParent) {
-            console.log('Keeping parent menu open:', {
-              href: currentParent.querySelector('a')?.getAttribute('href'),
-              wasActive: currentParent.classList.contains('active'),
-              wasVisible: isSubmenuVisible(currentParent),
-              isNested: currentParent.closest('.submenu') !== null
-            });
+          // Finally, show the phases menu
+          const nestedSubmenu = secuenciacionItem.nextElementSibling;
+          if (nestedSubmenu && nestedSubmenu.classList.contains('submenu-nested')) {
+            nestedSubmenu.style.maxHeight = `${nestedSubmenu.scrollHeight}px`;
+            nestedSubmenu.style.display = 'block';
+            nestedSubmenu.style.visibility = 'visible';
+            nestedSubmenu.style.opacity = '1';
             
-            toggleSubmenu(currentParent, true);
-            currentParent = currentParent.parentElement.closest('.has-submenu');
+            // Show all phase elements
+            const phaseElements = nestedSubmenu.querySelectorAll('.submenu-item');
+            phaseElements.forEach(element => {
+              element.style.maxHeight = '500px';
+              element.style.display = 'block';
+              element.style.visibility = 'visible';
+              element.style.opacity = '1';
+            });
           }
+        }
+      }
 
-          // Update URL hash
-          const href = toggle.getAttribute('href');
-          if (href) {
-            console.log('Updating URL hash to:', href);
-            window.location.hash = href;
-            window.dispatchEvent(new HashChangeEvent('hashchange'));
-          }
-        });
-      });
-
-      // Handle menu item clicks
+      // Set up menu items
       document.querySelectorAll('.submenu-item').forEach(item => {
         console.log('Setting up submenu item:', item.getAttribute('href'));
         
@@ -305,36 +263,58 @@ function Sidebar() {
           e.preventDefault();
           e.stopPropagation();
           
+          const href = item.getAttribute('href');
+          const isSecuenciacion = href?.includes('Secuenciacion');
+          const isFase = href?.includes('Fase');
+          
           console.log('Menu item clicked:', {
-            href: item.getAttribute('href'),
-            isActive: item.classList.contains('active')
+            href: href,
+            isActive: item.classList.contains('active'),
+            isSecuenciacion: isSecuenciacion,
+            isFase: isFase
           });
           
           // Remove active class from all items
           document.querySelectorAll('.submenu-item').forEach(i => {
-            if (i.classList.contains('active')) {
-              console.log('Removing active from:', i.getAttribute('href'));
-            }
             i.classList.remove('active');
+          });
+          
+          // Remove active class from all parent menus
+          document.querySelectorAll('.has-submenu').forEach(menu => {
+            menu.classList.remove('active');
           });
           
           // Add active class to clicked item
           item.classList.add('active');
-          console.log('Added active class to:', item.getAttribute('href'));
+          console.log('Added active class to:', href);
           
-          // Keep all parent menus open
+          // If this is a Secuenciación item, show its phases menu
+          if (isSecuenciacion) {
+            showPhasesMenu(item);
+          }
+          
+          // Keep only the necessary parent menus open
           let parent = item.closest('.has-submenu');
           while (parent) {
-            console.log('Keeping parent menu open:', {
-              href: parent.querySelector('a')?.getAttribute('href'),
-              wasActive: parent.classList.contains('active')
+            const parentHref = parent.querySelector('a')?.getAttribute('href');
+            console.log('Processing parent menu:', {
+              href: parentHref,
+              isCurrentPath: href.includes(parentHref)
             });
             
-            parent.classList.add('active');
+            if (href.includes(parentHref)) {
+              parent.classList.add('active');
+              const parentSubmenu = parent.querySelector('.submenu');
+              if (parentSubmenu) {
+                parentSubmenu.style.maxHeight = `${parentSubmenu.scrollHeight}px`;
+                parentSubmenu.style.display = 'block';
+                parentSubmenu.style.visibility = 'visible';
+                parentSubmenu.style.opacity = '1';
+              }
+            }
             parent = parent.parentElement.closest('.has-submenu');
           }
           
-          const href = item.getAttribute('href');
           if (href) {
             console.log('Updating URL hash to:', href);
             window.location.hash = href;
@@ -343,6 +323,92 @@ function Sidebar() {
               top: 0,
               behavior: 'smooth'
             });
+          }
+        });
+      });
+
+      // Toggle submenu
+      document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const parent = toggle.parentElement;
+          const submenu = parent.querySelector('.submenu');
+          const href = toggle.getAttribute('href');
+          const isSecuenciacion = href?.includes('Secuenciacion');
+          const isFase = href?.includes('Fase');
+          
+          // If the menu is already active, close it
+          if (parent.classList.contains('active')) {
+            parent.classList.remove('active');
+            if (submenu) {
+              submenu.style.maxHeight = '0';
+            }
+            
+            // If closing Secuenciación, hide all phase elements
+            if (isSecuenciacion) {
+              const phaseElements = document.querySelectorAll('.submenu-nested .submenu-item');
+              phaseElements.forEach(element => {
+                element.style.maxHeight = '0';
+                element.style.display = 'none';
+                element.style.visibility = 'hidden';
+                element.style.opacity = '0';
+              });
+            }
+            return;
+          }
+          
+          // If opening a new menu, close other menus at the same level
+          const siblings = parent.parentElement.querySelectorAll('.has-submenu');
+          siblings.forEach(sibling => {
+            if (sibling !== parent) {
+              sibling.classList.remove('active');
+              const siblingSubmenu = sibling.querySelector('.submenu');
+              if (siblingSubmenu) {
+                siblingSubmenu.style.maxHeight = '0';
+              }
+            }
+          });
+          
+          // Open the clicked menu
+          parent.classList.add('active');
+          if (submenu) {
+            const totalHeight = Array.from(submenu.children).reduce((height, child) => {
+              return height + child.offsetHeight;
+            }, 0);
+            submenu.style.maxHeight = `${totalHeight}px`;
+          }
+          
+          // If opening Secuenciación or a phase, show the phase elements
+          if (isSecuenciacion || isFase) {
+            const phaseElements = document.querySelectorAll('.submenu-nested .submenu-item');
+            phaseElements.forEach(element => {
+              element.style.maxHeight = '500px';
+              element.style.display = 'block';
+              element.style.visibility = 'visible';
+              element.style.opacity = '1';
+            });
+          }
+          
+          // Keep parent menus open
+          let currentParent = parent.parentElement.closest('.has-submenu');
+          while (currentParent) {
+            currentParent.classList.add('active');
+            const parentSubmenu = currentParent.querySelector('.submenu');
+            if (parentSubmenu) {
+              const totalHeight = Array.from(parentSubmenu.children).reduce((height, child) => {
+                return height + child.offsetHeight;
+              }, 0);
+              parentSubmenu.style.maxHeight = `${totalHeight}px`;
+            }
+            currentParent = currentParent.parentElement.closest('.has-submenu');
+          }
+
+          // Update URL hash
+          if (href) {
+            window.location.hash = href;
+            window.dispatchEvent(new HashChangeEvent('hashchange'));
           }
         });
       });

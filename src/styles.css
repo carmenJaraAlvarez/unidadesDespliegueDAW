@@ -5,6 +5,7 @@ body {
   font-family: Arial, sans-serif;
   overflow-x: hidden;
   background-color: #f8f9fa;
+  color: #333333;
 }
 
 /* Main content */
@@ -77,7 +78,7 @@ header nav {
 }
 
 .sidebar-menu a {
-  color: #333;
+  color: #333333;
   text-decoration: none;
   display: block;
   padding: 12px 20px;
@@ -97,15 +98,73 @@ header nav {
   background-color: #fff;
 }
 
-.submenu a {
-  padding-left: 40px;
-  font-size: 13px;
+.submenu-nested {
+  background-color: rgba(255, 255, 255, 0.1);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  position: relative;
+  left: 0;
+  width: 100%;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.has-submenu.active .submenu-nested {
+  max-height: 500px;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.submenu-nested a {
+  padding-left: 60px;
+  font-size: 12px;
+  display: block;
+  width: 100%;
+  opacity: 1;
+  visibility: visible;
+  max-height: 500px;
+  transition: all 0.3s ease-out;
+}
+
+.has-submenu.active .submenu-nested a {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+.has-submenu.active .submenu-nested li {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  max-height: 500px;
+}
+
+.has-submenu.active .submenu-nested .submenu-item {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  max-height: 500px;
+}
+
+.has-submenu.active .submenu-nested .submenu-item.active {
+  background-color: #f0f5ff;
+  border-left: 4px solid var(--primary-color);
+}
+
+.has-submenu.active .submenu-nested .submenu-item.active span {
+  color: #0056b3;
 }
 
 .has-submenu > a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: transparent;
+  color: inherit;
 }
 
 .has-submenu.active > a {
@@ -129,6 +188,7 @@ header nav {
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333333;
 }
 
 .content-box h2 {
@@ -146,7 +206,7 @@ header nav {
 }
 
 .subtitle {
-  color: #6c757d;
+  color: #333333;
   margin-bottom: 20px;
 }
 
@@ -483,10 +543,11 @@ footer a:hover {
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: #333333;
 }
 
 .description-content p {
-  color: #666;
+  color: #333333;
   line-height: 1.6;
   margin: 0;
 }
@@ -508,6 +569,7 @@ footer a:hover {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  color: #333333;
 }
 
 .section-card:hover {
@@ -528,7 +590,7 @@ footer a:hover {
 }
 
 .section-card p {
-  color: #666;
+  color: #333333;
   margin: 0;
   font-size: 14px;
 }
@@ -552,7 +614,8 @@ footer a:hover {
 .content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+ 
+  color: #333333;
 }
 
 .content h2 {
@@ -570,7 +633,7 @@ footer a:hover {
 .intro-content p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #4a5568;
+  color: #333333;
   margin-bottom: 1rem;
 }
 
@@ -587,7 +650,7 @@ footer a:hover {
 .framework-content > p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
-  color: #4a5568;
+  color: #333333;
 }
 
 .legal-framework {
@@ -611,7 +674,7 @@ footer a:hover {
 }
 
 .legal-framework p {
-  color: #4a5568;
+  color: #333333;
   font-size: 1rem;
   line-height: 1.5;
   margin-left: 1.5rem;
@@ -620,7 +683,7 @@ footer a:hover {
 .home-conclusion p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #4a5568;
+  color: #333333;
 }
 
 .legal-list {
@@ -632,7 +695,7 @@ footer a:hover {
 .legal-list li {
   margin-bottom: 0.8rem;
   line-height: 1.4;
-  color: #4a5568;
+  color: #333333;
   display: flex;
   align-items: flex-start;
 }
@@ -654,11 +717,101 @@ footer a:hover {
   text-decoration: underline;
 }
 
-.sidebar-menu .submenu-item.active {
-  background-color: #f0f5ff;
-  border-left: 4px solid var(--primary-color);
+/* Reset inherited styles for menu items */
+.submenu-item {
+  background-color: initial !important;
+  border-left: none !important;
+  color: initial !important;
 }
 
-.sidebar-menu .submenu-item.active span {
-  color: #0056b3;
+/* Active state styles */
+.submenu-item.active {
+  background-color: #f0f5ff !important;
+  border-left: 4px solid var(--primary-color) !important;
+  color: #0056b3 !important;
+}
+
+/* Reset parent menu styles from affecting children */
+.has-submenu > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.has-submenu.active > a {
+  background-color: #e9ecef !important;
+  color: #0056b3 !important;
+}
+
+/* Reset nested menu item styles */
+.submenu-nested .submenu-item {
+  background-color: initial !important;
+  border-left: none !important;
+  color: initial !important;
+}
+
+/* Active state for nested items */
+.submenu-nested .submenu-item.active {
+  background-color: #f0f5ff !important;
+  border-left: 4px solid var(--primary-color) !important;
+  color: #0056b3 !important;
+}
+
+/* Reset span styles */
+.submenu-item span {
+  color: initial !important;
+}
+
+/* Active span styles */
+.submenu-item.active span {
+  color: #0056b3 !important;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  max-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.submenu {
+  transition: all 0.3s ease-in-out;
+}
+
+.submenu-nested .submenu-item {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Parent menu styles - isolated to parent only */
+.has-submenu {
+  position: relative;
+}
+
+/* Submenu container styles - isolated to container only */
+.has-submenu > .submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #fff;
+}
+
+.has-submenu.active > .submenu {
+  max-height: 500px;
+}
+
+/* Child menu item styles - isolated to children only */
+.submenu > .submenu-item {
+  background-color: transparent;
+  border-left: none;
+  color: inherit;
+}
+
+/* Nested submenu styles - isolated to nested items only */
+.submenu-nested > .submenu-item {
+  background-color: transparent;
+  border-left: none;
+  color: inherit;
 } 

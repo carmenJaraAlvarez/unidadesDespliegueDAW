@@ -38,9 +38,9 @@ function Unidad3SecuenciacionFaseSintesis() {
       }
 
       .activity-card {
-        margin: 2rem 0;
+        margin: 0 0 2rem 0;
         padding: 1.5rem;
-        border: 1px solid #1976D2;
+        border: 2px solid #1976D2;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         background-color: white;
@@ -55,8 +55,10 @@ function Unidad3SecuenciacionFaseSintesis() {
       }
 
       .activity-content h4 {
-        color: #333;
-        margin: 1.5rem 0 0.5rem 0;
+        color: #1976D2;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
       }
 
       .activity-content ul {

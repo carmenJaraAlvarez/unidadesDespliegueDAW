@@ -36,6 +36,10 @@ function Unidad1SecuenciacionSecuenciacion() {
       h2 {
         margin-top: 2rem;
         color: #333;
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #1976D2;
       }
 
       .phases-container {
@@ -79,6 +83,22 @@ function Unidad1SecuenciacionSecuenciacion() {
         color: #666;
         margin: 0;
         font-size: 1rem;
+      }
+
+      h4 {
+        color: #1976D2;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+      }
+
+      .actividad-card {
+        margin: 0 0 2rem 0;
+        padding: 1.5rem;
+        border: 2px solid #1976D2;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: white;
       }
     </style>
   `;
