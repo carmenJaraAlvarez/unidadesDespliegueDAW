@@ -80,6 +80,10 @@ function Unidad1SecuenciacionFaseDesarrollo() {
       h2 {
         margin-top: 2rem;
         color: #333;
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #1976D2;
       }
 
       .actividad-card {
