@@ -28,6 +28,14 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     ).subscribe(() => {
       this.handleRouteChange();
     });
+
+    // Close all submenus when clicking Inicio
+    const inicioLink = document.querySelector('a[routerLink="/inicio"]');
+    if (inicioLink) {
+      inicioLink.addEventListener('click', () => {
+        this.closeAllSubmenus();
+      });
+    }
   }
 
   ngAfterViewInit() {
@@ -237,5 +245,26 @@ export class SidebarComponent implements OnInit, AfterViewInit {
         zIndex: computedStyle.zIndex
       });
     }
+  }
+
+  private closeAllSubmenus() {
+    // Get all menu items with submenus
+    const allMenuItems = document.querySelectorAll('.has-submenu');
+    
+    // Close all menus
+    allMenuItems.forEach(item => {
+      item.classList.remove('active');
+      const submenu = item.querySelector('.submenu') as HTMLElement | null;
+      if (submenu) {
+        submenu.style.maxHeight = '0';
+      }
+    });
+
+    // Close all nested submenus
+    const nestedSubmenus = document.querySelectorAll('.submenu-nested');
+    nestedSubmenus.forEach(submenu => {
+      const submenuElement = submenu as HTMLElement;
+      submenuElement.style.maxHeight = '0';
+    });
   }
 }
