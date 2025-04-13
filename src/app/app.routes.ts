@@ -6,6 +6,9 @@ import { DuaComponent } from './body/unit1/dua/dua.component';
 import { DescriptionComponent } from './body/unit1/description/description.component';
 import { SpecificationComponent } from './body/unit1/specification/specification.component';
 import { SequencingComponent } from './body/unit1/sequencing/sequencing/sequencing.component';
+import { Phase1Component } from './body/unit1/sequencing/phase1/phase1.component';
+import { Phase2Component } from './body/unit1/sequencing/phase2/phase2.component';
+import { Phase3Component } from './body/unit1/sequencing/phase3/phase3.component';
 import { EvaluationComponent } from './body/unit1/evaluation/evaluation.component';
 import { IdentificationComponent as Unit2IdentificationComponent } from './body/unit2/identification/identification.component';
 import { JustificationComponent as Unit2JustificationComponent } from './body/unit2/justification/justification.component';
@@ -35,6 +38,9 @@ export const routes: Routes = [
       { path: 'descripcion', component: DescriptionComponent },
       { path: 'concrecion', component: SpecificationComponent },
       { path: 'secuenciacion', component: SequencingComponent },
+      { path: 'secuenciacion/faseinicial', component: Phase1Component },
+      { path: 'secuenciacion/fasedesarrollo', component: Phase2Component },
+      { path: 'secuenciacion/fasesintesis', component: Phase3Component },
       { path: 'evaluacion', component: EvaluationComponent }
     ]
   },
