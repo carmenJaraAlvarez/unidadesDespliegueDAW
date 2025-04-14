@@ -113,7 +113,7 @@ body {
   }
   
   .has-submenu.active .submenu-nested {
-    max-height: 500px;
+    /*max-height: 500px;*/
     display: block;
     visibility: visible;
     opacity: 1;
@@ -131,7 +131,7 @@ body {
   }
   
   .has-submenu.active .submenu-nested a {
-    max-height: 500px;
+    /*max-height: 500px;*/
     opacity: 1;
     visibility: visible;
     display: block;
