@@ -1,0 +1,5 @@
+.submenu,
+.submenu-nested,
+.submenu-nested .submenu-item {
+  transition: none !important;
+}

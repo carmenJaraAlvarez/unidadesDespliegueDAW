@@ -1,0 +1,144 @@
+<div class="burger-menu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <aside class="sidebar">
+    <nav class="sidebar-menu">
+      <ul>
+        <li>
+          <a routerLink="/inicio" routerLinkActive="active">Inicio</a>
+        </li>
+        <li class="has-submenu">
+          <a href="#" (click)="toggleSubmenu($event, 'unidad1')" class="submenu-toggle">
+            Unidad 1: La Paz es Compartir
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul id="unidad1" class="submenu">
+            <li>
+              <a routerLink="/unidad1/identificacion" routerLinkActive="active" class="submenu-item">
+                1. Datos de Identificación
+              </a>
+            </li>
+            <li>
+              <a routerLink="/unidad1/justificacion" routerLinkActive="active" class="submenu-item">
+                2. Justificación
+              </a>
+            </li>
+            <li>
+              <a routerLink="/unidad1/principiosdua" routerLinkActive="active" class="submenu-item">
+                3. Principios DUA
+              </a>
+            </li>
+            <li>
+              <a routerLink="/unidad1/descripcion" routerLinkActive="active" class="submenu-item">
+                4. Descripción del Producto
+              </a>
+            </li>
+            <li>
+              <a routerLink="/unidad1/concrecion" routerLinkActive="active" class="submenu-item">
+                5. Concreción Curricular
+              </a>
+            </li>
+            <li class="has-submenu">
+              <a routerLink="/unidad1/secuenciacion" (click)="toggleSubmenu($event, 'secuenciacion')" class="submenu-toggle submenu-item">
+                6. Secuenciación Didáctica
+                <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul id="secuenciacion" class="submenu submenu-nested">
+                <li>
+                  <a routerLink="/unidad1/secuenciacion/faseinicial" routerLinkActive="active" class="submenu-item">
+                    6.1. Fase Inicial
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/unidad1/secuenciacion/fasedesarrollo" routerLinkActive="active" class="submenu-item">
+                    6.2. Fase de Desarrollo
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/unidad1/secuenciacion/fasesintesis" routerLinkActive="active" class="submenu-item">
+                    6.3. Fase de Síntesis
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a routerLink="/unidad1/evaluacion" routerLinkActive="active" class="submenu-item">
+                7. Evaluación
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="#" (click)="toggleSubmenu($event, 'unidad2')" class="submenu-toggle">
+            <span>Unidad 2: Una nube sin agua</span>
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul id="unidad2" class="submenu">
+            <li><a routerLink="/unidad2/identificacion" routerLinkActive="active" class="submenu-item"><span>1. Datos de Identificación</span></a></li>
+            <li><a routerLink="/unidad2/justificacion" routerLinkActive="active" class="submenu-item"><span>2. Justificación</span></a></li>
+            <li><a routerLink="/unidad2/principiosdua" routerLinkActive="active" class="submenu-item"><span>3. Principios DUA</span></a></li>
+            <li><a routerLink="/unidad2/descripcion" routerLinkActive="active" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
+            <li><a routerLink="/unidad2/concrecion" routerLinkActive="active" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
+            <li class="has-submenu">
+              <a routerLink="/unidad2/secuenciacion" (click)="toggleSubmenu($event, 'secuenciacion')" class="submenu-toggle submenu-item">
+                <span>6. Secuenciación Didáctica</span>
+                <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul id="secuenciacion2" class="submenu submenu-nested">
+                <li>
+                  <a routerLink="/unidad2/secuenciacion/faseinicial" routerLinkActive="active" class="submenu-item">
+                    6.1. Fase Inicial
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/unidad2/secuenciacion/fasedesarrollo" routerLinkActive="active" class="submenu-item">
+                    6.2. Fase de Desarrollo
+                  </a>
+                </li>
+                <li>
+                  <a routerLink="/unidad2/secuenciacion/fasesintesis" routerLinkActive="active" class="submenu-item">
+                    6.3. Fase de Síntesis
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li><a routerLink="/unidad2/evaluacion" routerLinkActive="active" class="submenu-item"><span>7. Evaluación</span></a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="#" (click)="toggleSubmenu($event, 'unidad3')" class="submenu-toggle">
+            <span>Unidad 3: Despliegue de Aplicaciones Web</span>
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul id="unidad3" class="submenu">
+            <li><a routerLink="/unidad3/identificacion" routerLinkActive="active" class="submenu-item"><span>1. Datos de Identificación</span></a></li>
+            <li><a routerLink="/unidad3/justificacion" routerLinkActive="active" class="submenu-item"><span>2. Justificación</span></a></li>
+            <li><a routerLink="/unidad3/principiosdua" routerLinkActive="active" class="submenu-item"><span>3. Principios DUA</span></a></li>
+            <li><a routerLink="/unidad3/descripcion" routerLinkActive="active" class="submenu-item"><span>4. Descripción del Producto</span></a></li>
+            <li><a routerLink="/unidad3/concrecion" routerLinkActive="active" class="submenu-item"><span>5. Concreción Curricular</span></a></li>
+            <li class="has-submenu">
+              <a routerLink="/unidad3/secuenciacion" (click)="toggleSubmenu($event, 'secuenciacion')" class="submenu-toggle submenu-item">
+                <span>6. Secuenciación Didáctica</span>
+                <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul id="secuenciacion3" class="submenu submenu-nested">
+                <li><a routerLink="/unidad3/secuenciacion/faseinicial" routerLinkActive="active" class="submenu-item"><span>6.1. Fase Inicial</span></a></li>
+                <li><a routerLink="/unidad3/secuenciacion/fasedesarrollo" routerLinkActive="active" class="submenu-item"><span>6.2. Fase de Desarrollo</span></a></li>
+                <li><a routerLink="/unidad3/secuenciacion/fasesintesis" routerLinkActive="active" class="submenu-item"><span>6.3. Fase de Síntesis</span></a></li>
+              </ul>
+            </li>
+            <li><a routerLink="/unidad3/evaluacion" routerLinkActive="active" class="submenu-item"><span>7. Evaluación</span></a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="#" (click)="toggleSubmenu($event, 'anexos')" class="submenu-toggle">
+            <span>Anexos</span>
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul id="anexos" class="submenu">
+            <li><a href="#Anexos/Modulo" class="submenu-item"><span>El módulo</span></a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
