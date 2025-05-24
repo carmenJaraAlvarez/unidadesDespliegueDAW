@@ -633,15 +633,18 @@ body {
   
   .section-card {
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    color: #333333;
-    border: 1px solid #0072BC;
+    border: 2px solid #0072BC;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    margin-top: 0;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .section-card:hover {
-    transform: translateY(-5px);
+    /* No transform or movement on hover */
   }
   
   .section-card a {
@@ -1044,4 +1047,65 @@ body {
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
+  }
+  
+  .section-subtitle {
+    color: #0072BC;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    text-align: left;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .section-card {
+      padding: 16px 8px;
+      border-radius: 12px;
+    }
+    .section-subtitle {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  }
+  
+  .section-card-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .section-card-alignbottom {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .big-icon-peace {
+    font-size: 110px;
+    color: #0072BC;
+    margin-left: 32px;
+    margin-bottom: 0;
+  }
+  @media (max-width: 900px) {
+    .section-card-alignbottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .big-icon-peace {
+      margin: 24px 0 0 0;
+      font-size: 72px;
+    }
+  }
+  
+  .section-card-bottomicon {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .bottom-icon-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: 24px;
   } 
