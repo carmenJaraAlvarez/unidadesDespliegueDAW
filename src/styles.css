@@ -209,16 +209,43 @@ body {
   .content-title {
     color: #218838;
     font-size: 24px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
     text-align: left;
     border-bottom: none;
   }
   
-  .green-underline {
+  .title-underline {
     width: 100%;
-    height: 2px;
-    background-color: #218838;
+    border-top: 2px solid #218838;
     margin-bottom: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .green-underline {
+    display: none;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .full-width-container {
+      width: calc(100% - 60px) !important;
+      max-width: 100% !important;
+    }
+    
+    .paragraph, .list-item {
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      word-wrap: break-word !important;
+      hyphens: auto !important;
+      text-align: left !important;
+    }
+    
+    .list-no-bullets {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
   }
   
   .subtitle {
@@ -327,7 +354,7 @@ body {
     .full-width-container {
       width: 100% !important;
       max-width: 100% !important;
-      padding: 0 15px !important;
+      padding: 0 !important;
       overflow-x: hidden !important;
     }
   
@@ -856,11 +883,13 @@ body {
   
   .section-left-align {
     text-align: left !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
-    max-width: calc(100% - 20px) !important;
+    max-width: 1200px !important;
   }
   
   .app-body {
@@ -882,7 +911,7 @@ body {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding: 0 30px !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
     overflow-x: hidden !important;
     word-wrap: break-word !important;
@@ -934,6 +963,73 @@ body {
   }
   
   @media screen and (max-width: 768px) {
+    .paragraph, .list-item {
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      word-wrap: break-word !important;
+      hyphens: auto !important;
+      text-align: left !important;
+    }
+    
+    .list-no-bullets {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .section-left-align {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      max-width: 100% !important;
+    }
+    
+    .title-underline {
+      max-width: 100%;
+    }
+    
+    .burger-menu {
+      display: block;
+    }
+
+    .sidebar {
+      transform: translateX(-250px);
+    }
+
+    .main-content {
+      margin-left: 0 !important;
+      width: 100% !important;
+      padding-left: 0 !important;
+      overflow-x: hidden !important;
+    }
+
+    .full-width-container {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 !important;
+      overflow-x: hidden !important;
+    }
+
+    .app-body {
+      width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    body, html {
+      overflow-x: hidden !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+
+    footer {
+      left: 0 !important;
+      width: 100% !important;
+    }
+
+    footer::after {
+      left: 0 !important;
+    }
+    
     .paragraph, .list-item {
       word-break: break-word !important;
       overflow-wrap: break-word !important;
