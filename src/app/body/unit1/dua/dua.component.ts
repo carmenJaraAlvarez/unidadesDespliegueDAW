@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dua',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './dua.component.html',
-  styleUrl: './dua.component.css',
+  styleUrl: './dua.component.css'
 })
-export class DuaComponent {}
+export class DuaComponent {
+
+}

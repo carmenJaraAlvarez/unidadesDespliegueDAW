@@ -30,12 +30,11 @@ import { Phase1Component as Unit3Phase1Component } from './body/unit3/sequencing
 import { Phase2Component as Unit3Phase2Component } from './body/unit3/sequencing/phase2/phase2.component';
 import { Phase3Component as Unit3Phase3Component } from './body/unit3/sequencing/phase3/phase3.component';
 import { EvaluationComponent as Unit3EvaluationComponent } from './body/unit3/evaluation/evaluation.component';
-import { AttachmentsComponent } from './body/attachments/attachments/attachments.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'inicio', component: HomeComponent },
-  {
+  { 
     path: 'unidad1',
     children: [
       { path: '', redirectTo: 'identificacion', pathMatch: 'full' },
@@ -48,8 +47,8 @@ export const routes: Routes = [
       { path: 'secuenciacion/faseinicial', component: Phase1Component },
       { path: 'secuenciacion/fasedesarrollo', component: Phase2Component },
       { path: 'secuenciacion/fasesintesis', component: Phase3Component },
-      { path: 'evaluacion', component: EvaluationComponent },
-    ],
+      { path: 'evaluacion', component: EvaluationComponent }
+    ]
   },
   {
     path: 'unidad2',
@@ -64,8 +63,8 @@ export const routes: Routes = [
       { path: 'secuenciacion/faseinicial', component: Unit2Phase1Component },
       { path: 'secuenciacion/fasedesarrollo', component: Unit2Phase2Component },
       { path: 'secuenciacion/fasesintesis', component: Unit2Phase3Component },
-      { path: 'evaluacion', component: Unit2EvaluationComponent },
-    ],
+      { path: 'evaluacion', component: Unit2EvaluationComponent }
+    ]
   },
   {
     path: 'unidad3',
@@ -80,11 +79,7 @@ export const routes: Routes = [
       { path: 'secuenciacion/faseinicial', component: Unit3Phase1Component },
       { path: 'secuenciacion/fasedesarrollo', component: Unit3Phase2Component },
       { path: 'secuenciacion/fasesintesis', component: Unit3Phase3Component },
-      { path: 'evaluacion', component: Unit3EvaluationComponent },
-    ],
-  },
-  {
-    path: 'anexos/modulo',
-    component: AttachmentsComponent,
-  },
+      { path: 'evaluacion', component: Unit3EvaluationComponent }
+    ]
+  }
 ];
