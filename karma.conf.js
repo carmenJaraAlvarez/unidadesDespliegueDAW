@@ -33,7 +33,7 @@ module.exports = function (config) {
         flags: ['--no-sandbox', '--disable-gpu']
       }
     },
-    browsers: [process.env.CI === 'true' || process.env.GITHUB_ACTIONS ? 'ChromeHeadlessNoSandbox' : 'Chrome'],
+    browsers: ['ChromeHeadlessNoSandbox'],
     singleRun: false,
     restartOnFileChange: true
   });
