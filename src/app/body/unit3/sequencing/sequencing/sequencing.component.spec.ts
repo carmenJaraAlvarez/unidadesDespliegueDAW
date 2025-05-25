@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
 
 import { SequencingComponent } from './sequencing.component';
 
@@ -9,10 +8,10 @@ describe('SequencingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SequencingComponent],
-      providers: [{ provide: ActivatedRoute, useValue: {} }],
-    }).compileComponents();
-
+      imports: [SequencingComponent]
+    })
+    .compileComponents();
+    
     fixture = TestBed.createComponent(SequencingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

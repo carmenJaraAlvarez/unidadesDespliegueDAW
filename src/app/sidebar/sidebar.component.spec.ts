@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
 
 import { SidebarComponent } from './sidebar.component';
 
@@ -9,10 +8,10 @@ describe('SidebarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SidebarComponent],
-      providers: [{ provide: ActivatedRoute, useValue: {} }],
-    }).compileComponents();
-
+      imports: [SidebarComponent]
+    })
+    .compileComponents();
+    
     fixture = TestBed.createComponent(SidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
