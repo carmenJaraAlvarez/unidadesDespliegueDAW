@@ -135,29 +135,6 @@ Obra publicada con [Licencia Creative Commons Reconocimiento Compartir igual 4.0
 
 ---
 
-## 👩‍🏫 Autora
 
-**Carmen Jara Álvarez**
-
-Máster Universitario en Profesorado - Universidad de Sevilla
-
----
-
-## 🔧 Tecnologías Utilizadas
-
-- Angular 17
-- TypeScript
-- HTML5 / CSS3
-- Material Icons
-- Python (para generación de documentos)
-- python-docx
-
----
-
-## 📞 Contacto y Contribuciones
-
-Para consultas, sugerencias o contribuciones, por favor abre un issue en el repositorio o contacta directamente con la autora.
-
----
 
 **Proyecto generado con [Angular CLI](https://github.com/angular/angular-cli) versión 17.3.16**
