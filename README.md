@@ -1,14 +1,14 @@
 # Propuesta Didáctica - Despliegue de Aplicaciones Web
 
-Propuesta didáctica parcial elaborada por **Carmen Jara Álvarez** durante el aprendizaje de la asignatura AEMI del Máster Universitario en Profesorado en Enseñanza Secundaria Obligatoria y Bachillerato, Formación Profesional y Enseñanzas de Idiomas de la Universidad de Sevilla.
+Propuesta didáctica parcial.
 
-**Julio 2025**
+
 
 ---
 
 ## 📋 Descripción del Proyecto
 
-Este proyecto presenta una propuesta didáctica completa para el módulo de **Despliegue de Aplicaciones Web** del ciclo formativo de grado superior de Desarrollo de Aplicaciones Web (DAW). La propuesta incluye tres unidades didácticas que integran valores de paz, sostenibilidad y seguridad en el aprendizaje técnico:
+Este proyecto presenta una propuesta didáctica parcial para el módulo de **Despliegue de Aplicaciones Web** del ciclo formativo de grado superior de Desarrollo de Aplicaciones Web (DAW). La propuesta incluye tres unidades didácticas que integran valores de paz, sostenibilidad y seguridad en el aprendizaje técnico:
 
 ### Unidades Didácticas
 
@@ -74,14 +74,6 @@ unidadesDespliegueDAW/
 
 ---
 
-## 🛠️ Desarrollo
-
-### Generar Componente
-
-```bash
-ng generate component nombre-componente
-```
-
 ### Build
 
 ```bash
@@ -90,14 +82,12 @@ ng build
 
 Los artefactos de construcción se almacenarán en el directorio `dist/`.
 
-### Generar Documento Word desde Markdown
+### Documento Word y md
 
 ```bash
 cd doc
-python generar_docx.py
 ```
 
-Este script convierte el archivo Markdown a formato Word manteniendo el formato y estilos.
 
 ---
 
@@ -128,9 +118,9 @@ Este script convierte el archivo Markdown a formato Word manteniendo el formato 
 - ✅ Diseño responsive y accesible
 - ✅ Navegación intuitiva con menú lateral desplegable
 - ✅ Contenido estructurado siguiendo principios pedagógicos
-- ✅ Integración de ODS en todas las unidades
-- ✅ Principios DUA aplicados
-- ✅ Mapas conceptuales visuales
+- ✅ Integración de ODS 
+- ✅ Principios DUA
+- ✅ Mapas conceptuales
 - ✅ Documentación disponible en múltiples formatos (Web, MD, DOCX)
 
 ---
