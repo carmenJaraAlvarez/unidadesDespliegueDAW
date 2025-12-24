@@ -425,13 +425,62 @@ La secuenciación didáctica de la unidad se estructura en tres fases principale
 
 #### Introducción a la seguridad en aplicaciones web
 
-- **Descripción:** Introducción a la seguridad en aplicaciones web, reflexión sobre incidentes recientes y debate sobre la importancia de la seguridad.
+- **Descripción:** Introducción a la seguridad en aplicaciones web como parte fundamental del desarrollo profesional.
+
+- **Activación de ideas previas:**
+
+  - ¿Qué entendéis por seguridad web?
+  - ¿Conocéis ataques comunes o vulnerabilidades?
+  - ¿Conocéis herramientas de seguridad?
+  - ¿Sabéis si está legislada la seguridad requerida?
+
+- **Contextualización:** Presentación de incidentes reales de seguridad:
+
+  - **Ciberataque con IA a gran escala** (Riesgo de automatización de ataques): [Noticia El País](https://elpais.com/tecnologia/2025-11-14/un-grupo-chino-protagoniza-el-primer-ciberataque-con-ia-a-gran-escala-sin-intervencion-humana-sustancial.html)
+  - **Ciberataque a Presa** (Riesgo para sistemas críticos): [Noticia Computer Hoy](https://computerhoy.20minutos.es/ciberseguridad/dinamarca-acusa-oficialmente-rusia-hackear-una-presa-abrir-sus-compuertas_6913405_0.html)
+  - **Incidente en aeropuertos por fallo de sistemas** (Impacto en servicios. Economía real): [Noticia RTVE](https://www.rtve.es/noticias/20250921/ciberataque-facturacion-embarque-mantiene-incidencias-aeropuertos-europeos/16737840.shtml)
+
+- **Reflexión guiada:**
+
+  - Importancia de la seguridad para la continuidad de un servicio y la confianza del usuario.
+  - **Ataques y defensas:** Conocer los ataques es la mejor manera de implementar una defensa adecuada.
+  - **Legislación:** La legislación nos obliga a determinadas cosas, pero no podemos quedarnos ahí. Como hemos visto, el riesgo es mucho.
+
+- **Recursos:**
+  - [Ataques más comunes - Fortinet](https://www.fortinet.com/lat/resources/cyberglossary/web-security-threats)
+  - [Legislación aplicable a toda aplicación web - Ministerio de Hacienda](https://www.hacienda.gob.es/es-ES/El%20Ministerio/Paginas/DPD/Normativa_PD.aspx)
+  - [Legislación servicios críticos - Gobierno Digital](https://avance.digital.gob.es/es-es/servicios/seguridad-redes/paginas/seguridad-redes-sistemas-informacion.aspx)
 
 ### Fase de Desarrollo: Conocer, comprender, pensar, practicar y actuar
 
-#### Actividades prácticas sobre vulnerabilidades, autenticación y cifrado
+#### ¿Qué puede fallar?
 
-- **Descripción:** Actividades prácticas sobre vulnerabilidades, implementación de autenticación y cifrado, y trabajo en equipo para corregir vulnerabilidades.
+- **Descripción:** A partir de una aplicación web básica, analizar qué partes pueden suponer un riesgo de seguridad: formularios, gestión de usuarios, contraseñas y acceso a la base de datos. Se trabaja la idea de que no todas las partes de una aplicación tienen el mismo nivel de riesgo.
+- **Recursos:** Esquema visual de una aplicación web, ejemplos reales de formularios y código sencillo.
+- **Agrupamiento:** Asamblea y trabajo en pequeños grupos.
+
+#### ¿Qué podemos hacer? Seamos estoicos
+
+- **Descripción:** Reacción vs prevención. Se pretende realizar aquí una colaboración conjunta al departamento de Filosofía del centro si existiese o de otro centro. Se incluirá elementos como Premeditatio Malorum y dicotomía del control.
+
+#### Actividades prácticas sobre autenticación
+
+- **Descripción:** Actividades prácticas sobre implementación de autenticación como elemento habitual. El alumnado añade a su aplicación un sistema sencillo de usuarios con registro e inicio de sesión. Se trabaja la diferencia entre estar identificado y tener permisos dentro de una aplicación.
+- **Recursos:** Código base proporcionado por el profesorado, tutorial guiado paso a paso.
+- **Agrupamiento:** Trabajo en grupos.
+
+#### Cifrado de contraseñas
+
+- **Descripción:** El alumnado modifica el sistema de autenticación para que las contraseñas no se almacenen en texto plano. Se explica de forma sencilla por qué esto es necesario y qué problemas puede causar no hacerlo.
+- **Recursos:** Ejemplos comparativos (contraseña sin cifrar / contraseña cifrada), esquemas visuales.
+- **Agrupamiento:** Grupos.
+
+#### Detección de vulnerabilidades
+
+- **Descripción:** Trabajo en equipo para corregir vulnerabilidades con herramienta de análisis de código estático:
+  - Instalación de plugin Snyk en el IDE (herramienta profesional que podemos usar si nos registramos)
+  - Análisis de resultados
+  - Solución de los mismos
 
 ### Fase de Síntesis o Cierre: Compartir, evaluar y reflexionar
 
@@ -459,6 +508,30 @@ _La evaluación será colectiva y tendrá en cuenta tanto la calidad técnica co
 ---
 
 # Anexos
+
+## Mapas Conceptuales de las Unidades Didácticas
+
+A continuación se presentan los mapas conceptuales que resumen visualmente los elementos clave de cada una de las tres unidades didácticas propuestas:
+
+### Mapa Conceptual - Unidad 1: La Paz es Compartir
+
+![Mapa Conceptual Unidad 1](../src/assets/img/mapaU1.png)
+
+Este mapa conceptual representa la Unidad 1, centrada en el trabajo colaborativo y la cultura de paz. El símbolo de paz contiene los elementos principales: el grupo, el conflicto, las herramientas de gestión (Git, GitHub, DevOps), y el producto final (landing page). Las flechas rojas muestran las interrelaciones entre estos elementos, destacando cómo el trabajo en grupo, la gestión de conflictos y el uso de herramientas colaborativas convergen en el desarrollo del producto final.
+
+### Mapa Conceptual - Unidad 2: Una Nube sin Agua
+
+![Mapa Conceptual Unidad 2](../src/assets/img/mapaU2.png)
+
+Este mapa conceptual ilustra la Unidad 2, enfocada en la computación en la nube y la sostenibilidad. La huella de carbono verde representa el impacto ambiental del cloud computing. Los elementos clave (conocer las plataformas cloud, elegir proveedor sostenible, y visualizar el consumo) apuntan hacia el producto final (aplicación desplegada en la nube de forma optimizada). El diseño enfatiza la conciencia ecológica necesaria en el uso de recursos tecnológicos.
+
+### Mapa Conceptual - Unidad 3: Defenderse o Morir
+
+![Mapa Conceptual Unidad 3](../src/assets/img/mapaU3.png)
+
+Este mapa conceptual simboliza la Unidad 3, dedicada a la seguridad en aplicaciones web. El escudo rojo representa la protección necesaria en el entorno digital. Como elemento de inicio, debemos conocer las amenazas para poder actuar en función de ellas. Las posibles actuaciones pueden ser reactivas y/o de prevención. La forma en las que las abordemos está llena de filosofía de vida. Nuestra prevención, debe de llegar al producto final: una aplicación web segura y resiliente ante ataques.
+
+---
 
 ## El módulo: Despliegue de Aplicaciones Web
 

@@ -31,6 +31,7 @@ import { Phase2Component as Unit3Phase2Component } from './body/unit3/sequencing
 import { Phase3Component as Unit3Phase3Component } from './body/unit3/sequencing/phase3/phase3.component';
 import { EvaluationComponent as Unit3EvaluationComponent } from './body/unit3/evaluation/evaluation.component';
 import { AttachmentsComponent } from './body/attachments/attachments/attachments.component';
+import { ConceptualMapsComponent } from './body/attachments/conceptual-maps/conceptual-maps.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -86,5 +87,9 @@ export const routes: Routes = [
   {
     path: 'anexos/modulo',
     component: AttachmentsComponent,
+  },
+  {
+    path: 'anexos/mapas',
+    component: ConceptualMapsComponent,
   },
 ];
