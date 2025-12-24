@@ -1,6 +1,6 @@
 # Propuesta Didáctica - Despliegue de Aplicaciones Web
 
-Propuesta didáctica parcial.
+Recurso Educativo Abierto para el módulo de **Despliegue de Aplicaciones Web** 
 
 
 
