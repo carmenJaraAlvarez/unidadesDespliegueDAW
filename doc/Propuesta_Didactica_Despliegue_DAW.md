@@ -4,13 +4,15 @@
 
 Esta propuesta didáctica parcial ha sido elaborada por **Carmen Jara Álvarez**, durante el aprendizaje de la asignatura **AEMI** del Máster Universitario en Profesorado en Enseñanza Secundaria Obligatoria y Bachillerato Formación Profesional y Enseñanzas de Idiomas de la Universidad de Sevilla.
 
-Julio 2025.
+Julio 2026.
 
 ---
 
 ## Descarga del recurso
 
 Este recurso se comparte con licencia Creative Commons Reconocimiento Compartir igual 4.0.
+
+Puedes descargar el archivo aqui //TODO
 
 ![Licencia Creative Commons](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 
