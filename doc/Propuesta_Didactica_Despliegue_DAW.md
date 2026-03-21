@@ -102,7 +102,7 @@ La secuenciación didáctica de la unidad se estructura en tres fases principale
 
 - **Fase Inicial: Situamos al alumnado** – Introducción a la cultura de paz, trabajo colaborativo y DevOps.
 - **Fase de Desarrollo: Conocer, comprender, pensar, practicar y actuar** – Actividades prácticas sobre tecnologías web, control de versiones, DevOps y trabajo en equipo.
-- **Fase de Síntesis o Cierre: Compartir, evaluar y reflexionar** – Presentación de resultados, reflexión y evaluación individual y colaborativa.
+- **Fase de Síntesis o Cierre: Compartir, evaluar y reflexionar** – Presentación de resultados, reflexión y evaluación.
 
 ### Fase Inicial: Situamos al alumnado
 
@@ -263,7 +263,7 @@ La secuenciación didáctica de la unidad se estructura en tres fases principale
 
 - **Fase Inicial: Situamos al alumnado** – Introducción a la computación en la nube, reflexión sobre su impacto y debate grupal sobre el uso responsable y sostenible de la nube.
 - **Fase de Desarrollo: Conocer, comprender, pensar, practicar y actuar** – Actividades prácticas sobre plataformas cloud, despliegue de aplicaciones, optimización ecológica y documentación colaborativa.
-- **Fase de Síntesis o Cierre: Compartir, evaluar y reflexionar** – Presentación de resultados, reflexión sobre sostenibilidad y evaluación individual y colaborativa del trabajo realizado.
+- **Fase de Síntesis o Cierre: Compartir, evaluar y reflexionar** – Presentación de resultados, reflexión sobre sostenibilidad y evaluación del trabajo realizado.
 
 ### Fase Inicial: Situamos al alumnado
 
@@ -419,7 +419,7 @@ La secuenciación didáctica de la unidad se estructura en tres fases principale
 
 - **Fase Inicial: Situamos al alumnado** – Introducción a la seguridad en aplicaciones web, reflexión sobre incidentes recientes y debate sobre la importancia de la seguridad.
 - **Fase de Desarrollo: Conocer, comprender, pensar, practicar y actuar** – Actividades prácticas sobre vulnerabilidades, implementación de autenticación y cifrado, y trabajo en equipo para corregir vulnerabilidades.
-- **Fase de Síntesis o Cierre: Compartir, evaluar y reflexionar** – Presentación de la aplicación segura, reflexión sobre el proceso y evaluación individual y colaborativa.
+- **Fase de Síntesis o Cierre: Compartir, evaluar y reflexionar** – Presentación de la aplicación segura, reflexión sobre el proceso y evaluación.
 
 ### Fase Inicial: Situamos al alumnado
 
@@ -486,7 +486,7 @@ La secuenciación didáctica de la unidad se estructura en tres fases principale
 
 #### Presentación de la aplicación segura y reflexión final
 
-- **Descripción:** Presentación de la aplicación segura, reflexión sobre el proceso y evaluación individual y colaborativa.
+- **Descripción:** Presentación de la aplicación segura, reflexión sobre el proceso y evaluación.
 
 ---
 
