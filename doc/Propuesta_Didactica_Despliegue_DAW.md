@@ -27,9 +27,9 @@ Obra publicada con [Licencia Creative Commons Reconocimiento Compartir igual 4.0
 ### Información básica
 
 - **Título:** La paz es compartir
-- **Materia:** Despliegue de aplicaciones web de DAW
+- **Módulo:** Despliegue de aplicaciones web de DAW
 - **Curso:** 2º
-- **Temporalización:** 12 horas lectivas (3 semanas)
+- **Temporalización:** 18 horas lectivas
 
 ---
 
@@ -187,9 +187,9 @@ Para ambas cosas se les creará un pequeño formulario en línea, que nos permit
 ### Identificación básica
 
 - **Título:** Una nube sin agua
-- **Materia:** Despliegue de aplicaciones web de DAW
+- **Módulo:** Despliegue de aplicaciones web de DAW
 - **Curso:** 2º
-- **Temporalización:** 12 horas lectivas (3 semanas)
+- **Temporalización:** 22 horas lectivas
 
 ---
 
@@ -346,9 +346,9 @@ Para ello, se utilizarán formularios en línea y rúbricas específicas que fac
 ### Identificación básica
 
 - **Título:** Defenderse o morir
-- **Materia:** Despliegue de aplicaciones web de DAW
+- **Módulo:** Despliegue de aplicaciones web de DAW
 - **Curso:** 2º
-- **Temporalización:** 12 horas lectivas (3 semanas)
+- **Temporalización:** 18 horas lectivas (3 semanas)
 
 ---
 
